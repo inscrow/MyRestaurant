@@ -9,7 +9,7 @@ public class Ordine {
 
     Ordine(int numPiatti, String tipoMenu, LocalDate data) {
         this.numPiatti = numPiatti;
-        this.tipoMenu = tipoMenu;
+        this.tipoMenu = tipoMenu.toLowerCase(); // impostiamo sempre il tipo ordine in lower case
         this.data = data;
     }
 
@@ -31,6 +31,10 @@ public class Ordine {
 
     public LocalDate getData() {
         return data;
+    }
+
+    public String toString() {
+        return numPiatti + " " + tipoMenu + " " + data;
     }
 
     public boolean equals(Ordine ordine) {

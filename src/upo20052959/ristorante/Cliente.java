@@ -87,7 +87,14 @@ public class Cliente {
 
         return null;
     }
-    // TODO: deleteOrdine(LocalDate data)
-    // TODO: String toString()
-    // TODO: boolean equals(Cliente c)
+
+    public void deleteOrdine(LocalDate data) {
+        if (this.containsOrdine(data)) {
+            ordini.remove(getOrdine(data));
+        }
+    }
+
+    public String toString() {
+        return "Cliente [id=" + id + ", nascita=" + nascita + ", registrazione=" + registrazione + "]";
+    }
 }

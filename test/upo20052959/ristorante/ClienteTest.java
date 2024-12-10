@@ -50,6 +50,21 @@ public class ClienteTest {
         Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
         Ordine o = new Ordine(3, "carne", LocalDate.of(2024, 12, 5));
         c.addOrdine(3, "carne", LocalDate.of(2024, 12, 5));
-        Assertions.assertEquals(o, c.getOrdine(LocalDate.of(2024, 12, 5)));
+        Assertions.assertTrue(o.equals( c.getOrdine(LocalDate.of(2024, 12, 5))));
+    }
+
+    @Test
+    void deleteOrdineTest() {
+        Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
+        c.addOrdine(3, "carne", LocalDate.of(2024, 12, 5));
+        c.deleteOrdine(LocalDate.of(2024, 12, 5));
+        Assertions.assertNull(c.getOrdine(LocalDate.of(2024, 12, 5)));
+    }
+
+    @Test
+    void toStringTest() {
+        Cliente c = new Cliente("TestToString", 1998, LocalDate.of(2020, 12, 31));
+        String expected = "Cliente [id=TestToString, nascita=1998, registrazione=2020-12-31]";
+        Assertions.assertEquals(expected, c.toString());
     }
 }
