@@ -15,7 +15,7 @@ public class Cliente {
     private List<Ordine> ordini;
     static private List<String> listaIds;
 
-    // Inizializiamo la lista degli id ad una lista vuota
+    // Inizializiamo la lista degli id a una lista vuota
     static {
         listaIds = new ArrayList<>();
     }
@@ -129,7 +129,7 @@ public class Cliente {
     /**
      * Verifica se esiste un ordine in una certa data
      * @param data data in cui cercare l'ordine
-     * @return `true` se esiste un'ordine per la data, `false` altrimenti
+     * @return `true` se esiste un ordine per la data, `false` altrimenti
      */
     public boolean containsOrdine(LocalDate data) {
         for (Ordine o : ordini) {
