@@ -78,6 +78,6 @@ public class MioRistoranteTest {
         MioRistorante.addOrdineCM(id, o.getNumPiatti(), o.getTipoMenu());
         Assertions.assertTrue(c.containsOrdine(LocalDate.now()));
         Assertions.assertNotNull(c.getOrdine(LocalDate.now()));
-        Assertions.assertTrue(o.equals(c.getOrdine(LocalDate.now())));
+        Assertions.assertEquals(o, c.getOrdine(LocalDate.now()));
     }
 }
