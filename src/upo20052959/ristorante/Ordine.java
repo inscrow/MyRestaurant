@@ -68,10 +68,16 @@ public class Ordine {
 
     /**
      * Verifica se due ordini sono uguali tra loro
-     * @param ordine ordine da verificare
+     * @param obj oggetto da verificare
      * @return `true` se i due ordini sono uguali, `false` altrimenti
      */
-    public boolean equals(Ordine ordine) {
-        return this.data.equals(ordine.data) && this.numPiatti == ordine.numPiatti && this.tipoMenu.equals(ordine.tipoMenu);
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Ordine) {
+            Ordine ordine = (Ordine) obj;
+            return this.data.equals(ordine.data) && this.numPiatti == ordine.numPiatti && this.tipoMenu.equals(ordine.tipoMenu);
+        } else {
+            return false;
+        }
     }
 }
