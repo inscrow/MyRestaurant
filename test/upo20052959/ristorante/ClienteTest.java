@@ -5,7 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+/**
+ * Test per la classe Cliente
+ */
 public class ClienteTest {
+
     @Test
     void creaClienteConIdTest() {
         Assertions.assertDoesNotThrow(() -> {
@@ -32,6 +36,15 @@ public class ClienteTest {
         String newId = Cliente.generaId();
         Assertions.assertNotNull(newId);
         // Assertions.assertFalse(Cliente.listaIds.contains(newId));
+    }
+
+    @Test
+    void getNumClientiTest() {
+        Assertions.assertDoesNotThrow(() -> {
+            int numClienti = Cliente.getNumClienti();
+            Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
+            Assertions.assertEquals(numClienti + 1, Cliente.getNumClienti());
+        });
     }
 
     @Test

@@ -108,6 +108,14 @@ public class Cliente {
     }
 
     /**
+     * Restituisce il numero di clienti creati
+     * @return numero di clienti creati
+     */
+    public static int getNumClienti() {
+        return listaIds.size();
+    }
+
+    /**
      * Aggiunge un ordine alla lista ordini del cliente
      * @param numPiatti numero di piatti nell'ordine
      * @param tipoMenu tipo di menù scelto (carne, pesce, vegetariano, ...)

@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
+/**
+ * Test per la classe Ordine
+ */
 public class OrdineTest {
 
     @Test
