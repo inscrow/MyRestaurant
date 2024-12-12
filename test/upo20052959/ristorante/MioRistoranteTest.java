@@ -8,9 +8,10 @@ import java.util.ArrayList;
 /**
  * Test della classe MioRistorante
  */
-public class MioRistoranteTest {
+public class    MioRistoranteTest {
     /**
      * Funzione di utilità per testare se un cliente ha i valori richiesti
+     *
      * @param c cliente da controllare
      * @param id id atteso
      * @param nascita anno di nascita attesa

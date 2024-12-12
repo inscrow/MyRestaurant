@@ -1,9 +1,7 @@
 package upo20052959.ristorante;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Classe driver dell'applicazione del ristorante
@@ -40,8 +38,8 @@ public class MioRistorante {
         System.out.println("2   - Cerca un cliente per id");
         System.out.println("3   - Cerca un cliente per età");
         System.out.println("4   - Aggiungi un'ordinazione");
-        // System.out.println("5   - Stampa le statistiche sul numero di piatti ordinati");
-        // System.out.println("6   - Stampa le statistiche sul tipo di menù ordinato");
+        System.out.println("5   - Stampa le statistiche sul numero di piatti ordinati");
+        System.out.println("6   - Stampa le statistiche sul tipo di menù ordinato");
         System.out.println("100 - Esci dall'applicazione");
         System.out.println(">");
     }
@@ -64,12 +62,12 @@ public class MioRistorante {
             case 4:
                 addOrdine();
                 break;
-            // case 5:
-            //     statisticheNumeroPiatti();
-            //     break;
-            // case 6:
-            //     statisticheTipoMenu();
-            //     break;
+            case 5:
+                 statisticheNumeroPiatti();
+                 break;
+             case 6:
+                 statisticheTipoMenu();
+                 break;
             case 100:
                 System.out.println("L'applicazione si sta chiudendo");
                 break;
@@ -212,6 +210,46 @@ public class MioRistorante {
         Cliente c = findClienteCM(id);
         if (null != c) {
             c.addOrdine(numPiatti, tipoMenu, LocalDate.now());
+        }
+    }
+
+    /**
+     * Stampa il numero minimo, il numero massimo e il numero medio di piatti per un ordine
+     */
+    public static void statisticheNumeroPiatti() {
+        IntSummaryStatistics stats = clienti.stream()
+                .flatMap(cliente -> cliente.getOrdini().stream())
+                .mapToInt(Ordine::getNumPiatti)
+                .filter(numPiatti -> numPiatti > 0)
+                .summaryStatistics();
+
+        if (stats.getCount() == 0) {
+            System.out.println("Non è stato ancora caricato nessun ordine");
+            return;
+        }
+
+        System.out.println("Il numero minimo di piatti in un ordine è: " + stats.getMin());
+        System.out.println("Il numero massimo di piatti in un ordine è: " + stats.getMax());
+        System.out.println("Il numero medio di piatti in un ordine è: " + stats.getAverage());
+    }
+
+    /**
+     * Stampare il numero di ordini per ciascun tipo di menù
+     */
+    public static void statisticheTipoMenu() {
+        Map<String, Integer> map = new HashMap<>();
+
+        for (Cliente c : clienti) {
+            for (Ordine o : c.getOrdini()) {
+                map.merge(o.getTipoMenu(), 1, Integer::sum);
+            }
+        }
+
+
+        if (!map.isEmpty()) {
+            map.forEach((K,n) -> System.out.println(K + ": " + n));
+        } else {
+            System.out.println("non sono ancora state registrate ordinazioni");
         }
     }
     // TODO: public static void statisticheNumeroPiatti() {}

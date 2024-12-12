@@ -23,8 +23,8 @@ public class Cliente {
     /**
      * Crea un cliente fornendo un id, se è già utilizzato lancia un eccezione
      * @param id id scelto dal cliente
-     * @param nascita anno di nascita del cliente
-     * @param registrazione data di registrazione del cliente
+     * @param nascita anno di nascita associati al cliente 
+     * @param registrazione data di registrazione associati al cliente 
      * @throws IdAlreadyUsed l'id fornito è già stato usato
      */
     public Cliente(String id, int nascita, LocalDate registrazione) throws IdAlreadyUsed {
@@ -40,16 +40,16 @@ public class Cliente {
 
     /**
      * Crea un cliente generando un id unico casuale
-     * @param nascita anno di nascita del cliente
-     * @param registrazione data di registrazione del cliente
+     * @param nascita anno di nascita associati al cliente 
+     * @param registrazione data di registrazione associati al cliente 
      */
     public Cliente(int nascita, LocalDate registrazione) throws IdAlreadyUsed {
         this(Cliente.generaId(), nascita, registrazione);
     }
 
     /**
-     * Ritorna l'id del cliente
-     * @return id del cliente
+     * Ritorna l'id associati al cliente 
+     * @return id associati al cliente 
      */
     public String getId() {
         return id;
@@ -59,15 +59,15 @@ public class Cliente {
     // di un cliente già esistente
 
     /**
-     * Restituisce l'anno di nascita del cliente
-     * @return anno di nascita del cliente
+     * Restituisce l'anno di nascita associati al cliente 
+     * @return anno di nascita associati al cliente 
      */
     public int getNascita() {
         return nascita;
     }
 
     /**
-     * Cambia l'anno di nascita del cliente
+     * Cambia l'anno di nascita associati al cliente 
      * @param nascita nuovo anno di nascita
      */
     public void setNascita(int nascita) {
@@ -75,7 +75,7 @@ public class Cliente {
     }
 
     /**
-     * Restituisce la data di registrazione del cliente
+     * Restituisce la data di registrazione associati al cliente 
      * @return data di registrazione
      */
     public LocalDate getRegistrazione() {
@@ -83,12 +83,21 @@ public class Cliente {
     }
 
     /**
-     * Cambia la data di registrazione del cliente
-     * @param registrazione nuova data di registrazione del cliente
+     * Cambia la data di registrazione associati al cliente 
+     * @param registrazione nuova data di registrazione associati al cliente 
      */
     public void setRegistrazione(LocalDate registrazione) {
         this.registrazione = registrazione;
     }
+    
+    /**
+     * Restituisce la lista degli ordini associati al cliente.
+     * @return la lista degli ordini
+     */
+    public List<Ordine> getOrdini() {
+        return ordini;
+    }
+
 
     /**
      * Genera un id casuale unico nel formato "user_" + numero
@@ -116,7 +125,7 @@ public class Cliente {
     }
 
     /**
-     * Aggiunge un ordine alla lista ordini del cliente
+     * Aggiunge un ordine alla lista ordini associati al cliente 
      * @param numPiatti numero di piatti nell'ordine
      * @param tipoMenu tipo di menù scelto (carne, pesce, vegetariano, ...)
      * @param data data in cui è stato effettuato l'ordine
@@ -127,8 +136,8 @@ public class Cliente {
     }
 
     /**
-     * Restituisce il numero di ordini del cliente
-     * @return numero ordini del cliente
+     * Restituisce il numero di ordini associati al cliente 
+     * @return numero ordini associati al cliente 
      */
     public int getNumOrdini() {
         return ordini.size();
