@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Test per la classe Cliente
@@ -93,5 +94,39 @@ public class ClienteTest {
             String expected = "Cliente [id=TestToString, nascita=1998, registrazione=2020-12-31]";
             Assertions.assertEquals(expected, c.toString());
         });
+    }
+
+    @Test
+    void getListNumPiattiTest() {
+        ArrayList<Integer> numPiatti = new ArrayList<>();
+        numPiatti.add(4);
+        numPiatti.add(3);
+        numPiatti.add(5);
+
+        Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
+        c.addOrdine(numPiatti.get(0), "carne", LocalDate.of(2024, 12, 5));
+        c.addOrdine(numPiatti.get(1), "pesce", LocalDate.of(2023, 12, 6));
+        c.addOrdine(numPiatti.get(2), "vegano", LocalDate.of(2021, 8, 5));
+
+        ArrayList<Integer> results = c.getListNumPiatti();
+
+        Assertions.assertArrayEquals(numPiatti.toArray(), results.toArray());
+    }
+
+    @Test
+    void getListTipoMenuTest() {
+        ArrayList<String> tipoMenu = new ArrayList<>();
+        tipoMenu.add("carne");
+        tipoMenu.add("pesce");
+        tipoMenu.add("vegano");
+
+        Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
+
+        c.addOrdine(3, tipoMenu.get(0), LocalDate.of(2024, 12, 5));
+        c.addOrdine(4, tipoMenu.get(1), LocalDate.of(2023, 12, 6));
+        c.addOrdine(5, tipoMenu.get(2), LocalDate.of(2021, 8, 5));
+
+        ArrayList<String> results = c.getListTipoMenu();
+        Assertions.assertArrayEquals(tipoMenu.toArray(), results.toArray());
     }
 }

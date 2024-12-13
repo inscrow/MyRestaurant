@@ -98,6 +98,32 @@ public class Cliente {
         return ordini;
     }
 
+    /**
+     * Crea una lista di numero di piatti degli ordini del cliente
+     * @return lista con numero di piatti per ogni ordine del cliente
+     */
+    public ArrayList<Integer> getListNumPiatti() {
+        ArrayList<Integer> results = new ArrayList<>();
+
+        for (Ordine ordini : ordini) {
+            results.add(ordini.getNumPiatti());
+        }
+
+        return results;
+    }
+
+    /**
+     * Crea una lista di tipi di menù degli ordini del cliente
+     * @return lista di tipi di menù per ogni ordine del cliente
+     */
+    public ArrayList<String> getListTipoMenu() {
+        ArrayList<String> results = new ArrayList<>();
+
+        for (Ordine ordini : ordini) {
+            results.add(ordini.getTipoMenu());
+        }
+
+        return results;    }
 
     /**
      * Genera un id casuale unico nel formato "user_" + numero
