@@ -81,6 +81,7 @@ public class MioRistorante {
      */
     public static void addCliente() {
         System.out.println("Id del nuovo cliente: ");
+        tastiera.skip("\n"); // potrebbe esserci un "\n" nel buffer di input, in questo modo lo saltiamo
         String id = tastiera.nextLine();
         System.out.println("Anno di nascita del cliente: ");
         int anno = tastiera.nextInt();
