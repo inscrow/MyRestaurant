@@ -74,8 +74,7 @@ public class Ordine {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Ordine) {
-            Ordine ordine = (Ordine) obj;
+        if (obj instanceof Ordine ordine) {
             return this.data.equals(ordine.data) && this.numPiatti == ordine.numPiatti && this.tipoMenu.equals(ordine.tipoMenu);
         } else {
             return false;

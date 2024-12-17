@@ -123,7 +123,8 @@ public class Cliente {
             results.add(ordini.getTipoMenu());
         }
 
-        return results;    }
+        return results;
+    }
 
     /**
      * Genera un id casuale unico nel formato "user_" + numero
