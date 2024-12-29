@@ -1,7 +1,12 @@
 package upo20052959.ristorante;
 
 import java.time.LocalDate;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.IntSummaryStatistics;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Classe driver dell'applicazione del ristorante
@@ -196,9 +201,45 @@ public class MioRistorante {
         System.out.println("Numero di piatti ordinati: ");
         int numPiatti = tastiera.nextInt();
         System.out.println("Tipo di menù scelto: ");
-        String tipo = tastiera.next();
+        System.out.println("1. carne");
+        System.out.println("2. pesce");
+        System.out.println("3. vegetariano");
+        System.out.println("4. vegano");
+        System.out.println("5. gluten free");
+        String tipo = tipoMenuCode(tastiera.nextInt());
 
         addOrdineCM(id, numPiatti, tipo);
+    }
+
+    /**
+     * Fornisce il tipo di menù dato il codice selezionato
+     * @param codice codice del menù selezionato
+     * @return stringa che descrive il tipo di menù selezionato
+     */
+    public static String tipoMenuCode(int codice) {
+      String tipoMenu;
+      switch (codice) {
+        case 1:
+          tipoMenu = "carne";
+          break;
+        case 2:
+          tipoMenu = "pesce";
+          break;
+        case 3:
+          tipoMenu = "vegetariano";
+          break;
+
+        case 4:
+          tipoMenu = "vegano";
+          break;
+        case 5:
+          tipoMenu = "gluten free";
+          break;
+        default:
+          tipoMenu = "alla carta";
+      }
+
+      return tipoMenu;
     }
 
     /**
