@@ -201,45 +201,12 @@ public class MioRistorante {
         System.out.println("Numero di piatti ordinati: ");
         int numPiatti = tastiera.nextInt();
         System.out.println("Tipo di menù scelto: ");
-        System.out.println("1. carne");
-        System.out.println("2. pesce");
-        System.out.println("3. vegetariano");
-        System.out.println("4. vegano");
-        System.out.println("5. gluten free");
-        String tipo = tipoMenuCode(tastiera.nextInt());
+        for (TipoMenu t : TipoMenu.values()) {
+          System.out.println(t.codice() + ". " + t.nome());
+        }
+        TipoMenu tipo = TipoMenu.selezione(tastiera.nextInt());
 
         addOrdineCM(id, numPiatti, tipo);
-    }
-
-    /**
-     * Fornisce il tipo di menù dato il codice selezionato
-     * @param codice codice del menù selezionato
-     * @return stringa che descrive il tipo di menù selezionato
-     */
-    public static String tipoMenuCode(int codice) {
-      String tipoMenu;
-      switch (codice) {
-        case 1:
-          tipoMenu = "carne";
-          break;
-        case 2:
-          tipoMenu = "pesce";
-          break;
-        case 3:
-          tipoMenu = "vegetariano";
-          break;
-
-        case 4:
-          tipoMenu = "vegano";
-          break;
-        case 5:
-          tipoMenu = "gluten free";
-          break;
-        default:
-          tipoMenu = "alla carta";
-      }
-
-      return tipoMenu;
     }
 
     /**
@@ -248,7 +215,7 @@ public class MioRistorante {
      * @param numPiatti numero di piatti nel pasto
      * @param tipoMenu tipo di menù ordinato
      */
-    public static void addOrdineCM(String id, int numPiatti, String tipoMenu) {
+    public static void addOrdineCM(String id, int numPiatti, TipoMenu tipoMenu) {
         Cliente c = findClienteCM(id);
         if (null != c) {
             c.addOrdine(numPiatti, tipoMenu, LocalDate.now());
@@ -278,9 +245,9 @@ public class MioRistorante {
      * Stampare il numero di ordini per ciascun tipo di menù
      */
     public static void statisticheTipoMenu() {
-        Map<String, Integer> map = new HashMap<>();
+        Map<TipoMenu, Integer> map = new HashMap<>();
         for (Cliente c : clienti) {
-            for (String tm : c.getListTipoMenu()) {
+            for (TipoMenu tm : c.getListTipoMenu()) {
                 map.merge(tm, 1, Integer::sum);
             }
         }

@@ -52,7 +52,7 @@ public class ClienteTest {
     void addOrdineTest() {
         Assertions.assertDoesNotThrow(() -> {
             Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
-            c.addOrdine(3, "carne", LocalDate.of(2024, 12, 5));
+            c.addOrdine(3, TipoMenu.CARNE, LocalDate.of(2024, 12, 5));
             Assertions.assertEquals(1, c.getNumOrdini());
         });
     }
@@ -61,7 +61,7 @@ public class ClienteTest {
     void containsOrdineTest() {
         Assertions.assertDoesNotThrow(() -> {
             Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
-            c.addOrdine(3, "carne", LocalDate.of(2024, 12, 5));
+            c.addOrdine(3, TipoMenu.CARNE, LocalDate.of(2024, 12, 5));
             Assertions.assertTrue(c.containsOrdine(LocalDate.of(2024, 12, 5)));
             Assertions.assertFalse(c.containsOrdine(LocalDate.of(2020, 12, 31)));
         });
@@ -71,8 +71,8 @@ public class ClienteTest {
     void getOrdineTest() {
         Assertions.assertDoesNotThrow(() -> {
             Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
-            Ordine o = new Ordine(3, "carne", LocalDate.of(2024, 12, 5));
-            c.addOrdine(3, "carne", LocalDate.of(2024, 12, 5));
+            Ordine o = new Ordine(3, TipoMenu.CARNE, LocalDate.of(2024, 12, 5));
+            c.addOrdine(3, TipoMenu.CARNE, LocalDate.of(2024, 12, 5));
             Assertions.assertEquals(o, c.getOrdine(LocalDate.of(2024, 12, 5)));
         });
     }
@@ -81,7 +81,7 @@ public class ClienteTest {
     void deleteOrdineTest() {
         Assertions.assertDoesNotThrow(() -> {
             Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
-            c.addOrdine(3, "carne", LocalDate.of(2024, 12, 5));
+            c.addOrdine(3, TipoMenu.CARNE, LocalDate.of(2024, 12, 5));
             c.deleteOrdine(LocalDate.of(2024, 12, 5));
             Assertions.assertNull(c.getOrdine(LocalDate.of(2024, 12, 5)));
         });
@@ -104,9 +104,9 @@ public class ClienteTest {
         numPiatti.add(5);
 
         Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
-        c.addOrdine(numPiatti.get(0), "carne", LocalDate.of(2024, 12, 5));
-        c.addOrdine(numPiatti.get(1), "pesce", LocalDate.of(2023, 12, 6));
-        c.addOrdine(numPiatti.get(2), "vegano", LocalDate.of(2021, 8, 5));
+        c.addOrdine(numPiatti.get(0), TipoMenu.CARNE, LocalDate.of(2024, 12, 5));
+        c.addOrdine(numPiatti.get(1), TipoMenu.PESCE, LocalDate.of(2023, 12, 6));
+        c.addOrdine(numPiatti.get(2), TipoMenu.VEGANO, LocalDate.of(2021, 8, 5));
 
         ArrayList<Integer> results = c.getListNumPiatti();
 
@@ -115,10 +115,10 @@ public class ClienteTest {
 
     @Test
     void getListTipoMenuTest() {
-        ArrayList<String> tipoMenu = new ArrayList<>();
-        tipoMenu.add("carne");
-        tipoMenu.add("pesce");
-        tipoMenu.add("vegano");
+        ArrayList<TipoMenu> tipoMenu = new ArrayList<>();
+        tipoMenu.add(TipoMenu.CARNE);
+        tipoMenu.add(TipoMenu.PESCE);
+        tipoMenu.add(TipoMenu.VEGANO);
 
         Cliente c = new Cliente(1998, LocalDate.of(2020, 12, 31));
 
@@ -126,7 +126,7 @@ public class ClienteTest {
         c.addOrdine(4, tipoMenu.get(1), LocalDate.of(2023, 12, 6));
         c.addOrdine(5, tipoMenu.get(2), LocalDate.of(2021, 8, 5));
 
-        ArrayList<String> results = c.getListTipoMenu();
+        ArrayList<TipoMenu> results = c.getListTipoMenu();
         Assertions.assertArrayEquals(tipoMenu.toArray(), results.toArray());
     }
 }

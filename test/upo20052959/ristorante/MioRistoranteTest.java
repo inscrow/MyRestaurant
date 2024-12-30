@@ -71,7 +71,7 @@ public class MioRistoranteTest {
     @Test
     void addOrdineTest() {
         String id = "TestOrdine000";
-        Ordine o = new Ordine(4, "vegano", LocalDate.now());
+        Ordine o = new Ordine(4, TipoMenu.VEGANO, LocalDate.now());
         Assertions.assertDoesNotThrow(() -> MioRistorante.addClienteCM(id, 1998, LocalDate.of(2023, 11, 5)));
         Cliente c = MioRistorante.findClienteCM(id);
         Assertions.assertNotNull(c);

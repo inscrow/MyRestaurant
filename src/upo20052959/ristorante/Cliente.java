@@ -116,8 +116,8 @@ public class Cliente {
      * Crea una lista di tipi di menù degli ordini del cliente
      * @return lista di tipi di menù per ogni ordine del cliente
      */
-    public ArrayList<String> getListTipoMenu() {
-        ArrayList<String> results = new ArrayList<>();
+    public ArrayList<TipoMenu> getListTipoMenu() {
+        ArrayList<TipoMenu> results = new ArrayList<>();
 
         for (Ordine ordini : ordini) {
             results.add(ordini.getTipoMenu());
@@ -157,7 +157,7 @@ public class Cliente {
      * @param tipoMenu tipo di menù scelto (carne, pesce, vegetariano, ...)
      * @param data data in cui è stato effettuato l'ordine
      */
-    public void addOrdine(int numPiatti, String tipoMenu, LocalDate data) {
+    public void addOrdine(int numPiatti, TipoMenu tipoMenu, LocalDate data) {
         Ordine o = new Ordine(numPiatti, tipoMenu, data);
         ordini.add(o);
     }
