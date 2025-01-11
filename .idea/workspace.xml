@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="sas">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="sos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/src/main/java/upo20052959/ristorante/miorest/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/src/main/java/upo20052959/ristorante/miorest/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/miorest/src/main/resources/upo20052959/ristorante/miorest/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/miorest/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/miorest/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/miorest/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,15 +50,51 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.main.executor": "Run",
+    "Application.mainApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/marco/Documents/JavaFX/MyRestaurant",
+    "last_opened_file_path": "C:/Users/marco/IdeaProjects/demo2",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
+  <component name="RunManager" selected="Application.main">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.main" />
+      <module name="myreasturant" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="upo20052959.ristorante.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.mainApplication" />
+      <module name="myreasturant" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="upo20052959.ristorante.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.mainApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -97,11 +120,28 @@
       <option name="project" value="LOCAL" />
       <updated>1736605081298</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="sos">
+      <option name="closed" value="true" />
+      <created>1736606311759</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736606311759</updated>
+    </task>
+    <task id="LOCAL-00004" summary="sos">
+      <option name="closed" value="true" />
+      <created>1736606362112</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1736606362112</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sas" />
-    <option name="LAST_COMMIT_MESSAGE" value="sas" />
+    <MESSAGE value="sos" />
+    <option name="LAST_COMMIT_MESSAGE" value="sos" />
   </component>
 </project>
