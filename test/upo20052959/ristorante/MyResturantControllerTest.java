@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * Test della classe MioRistorante
+ * Test della classe MyResturantController
  */
-public class MioRistoranteTest {
+public class MyResturantControllerTest {
     /**
      * Funzione di utilità per testare se un cliente ha i valori richiesti
      * @param c cliente da controllare
@@ -27,7 +27,7 @@ public class MioRistoranteTest {
         int nascita = 1998;
         LocalDate reg = LocalDate.of(2023, 11, 5);
         int numClienti = Cliente.getNumClienti();
-        Assertions.assertDoesNotThrow(() -> MioRistorante.addClienteCM(id, nascita, reg));
+        Assertions.assertDoesNotThrow(() -> MyResturantController.addCliente(id, nascita, reg));
         Assertions.assertEquals(numClienti+1, Cliente.getNumClienti());
     }
 
@@ -37,11 +37,11 @@ public class MioRistoranteTest {
         int nascita = 1998;
         LocalDate reg = LocalDate.of(2023, 11, 5);
         Assertions.assertDoesNotThrow(() -> {
-            MioRistorante.addClienteCM("", 1998, LocalDate.of(2023, 11, 5));
-            MioRistorante.addClienteCM(id, nascita, reg);
-            MioRistorante.addClienteCM("", 2000, LocalDate.now());
+            MyResturantController.addCliente("", 1998, LocalDate.of(2023, 11, 5));
+            MyResturantController.addCliente(id, nascita, reg);
+            MyResturantController.addCliente("", 2000, LocalDate.now());
         });
-        Cliente c = MioRistorante.findClienteCM(id);
+        Cliente c = MyResturantController.findCliente(id);
         Assertions.assertNotNull(c);
         Assertions.assertTrue(clienteEquals(c, id, nascita, reg));
     }
@@ -55,13 +55,13 @@ public class MioRistoranteTest {
         int[] nascita = { 1400, 1420, 1340 };
         LocalDate[] reg = { LocalDate.of(2020, 3, 7), LocalDate.of(2021, 12, 8), LocalDate.of(2022, 10, 20) };
         Assertions.assertDoesNotThrow(() -> {
-            MioRistorante.addClienteCM("", 2000, LocalDate.now());
-            MioRistorante.addClienteCM(id[0], nascita[0], reg[0]);
-            MioRistorante.addClienteCM(id[1], nascita[1], reg[1]);
-            MioRistorante.addClienteCM("", 1900, LocalDate.now());
-            MioRistorante.addClienteCM(id[2], nascita[2], reg[2]);
+            MyResturantController.addCliente("", 2000, LocalDate.now());
+            MyResturantController.addCliente(id[0], nascita[0], reg[0]);
+            MyResturantController.addCliente(id[1], nascita[1], reg[1]);
+            MyResturantController.addCliente("", 1900, LocalDate.now());
+            MyResturantController.addCliente(id[2], nascita[2], reg[2]);
         });
-        ArrayList<Cliente> clist = MioRistorante.findClienteEtaCM(600, 700);
+        ArrayList<Cliente> clist = MyResturantController.findClienteEta(600, 700);
         Assertions.assertNotEquals(clist.size(), 0);
         Assertions.assertTrue(clienteEquals(clist.get(0), id[0], nascita[0], reg[0]));
         Assertions.assertTrue(clienteEquals(clist.get(1), id[1], nascita[1], reg[1]));
@@ -72,10 +72,10 @@ public class MioRistoranteTest {
     void addOrdineTest() {
         String id = "TestOrdine000";
         Ordine o = new Ordine(4, TipoMenu.VEGANO, LocalDate.now());
-        Assertions.assertDoesNotThrow(() -> MioRistorante.addClienteCM(id, 1998, LocalDate.of(2023, 11, 5)));
-        Cliente c = MioRistorante.findClienteCM(id);
+        Assertions.assertDoesNotThrow(() -> MyResturantController.addCliente(id, 1998, LocalDate.of(2023, 11, 5)));
+        Cliente c = MyResturantController.findCliente(id);
         Assertions.assertNotNull(c);
-        MioRistorante.addOrdineCM(id, o.getNumPiatti(), o.getTipoMenu());
+        MyResturantController.addOrdine(id, o.getNumPiatti(), o.getTipoMenu());
         Assertions.assertTrue(c.containsOrdine(LocalDate.now()));
         Assertions.assertNotNull(c.getOrdine(LocalDate.now()));
         Assertions.assertEquals(o, c.getOrdine(LocalDate.now()));

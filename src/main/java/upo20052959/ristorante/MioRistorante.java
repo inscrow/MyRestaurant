@@ -13,12 +13,10 @@ import java.util.*;
  * Classe driver dell'applicazione del ristorante
  */
 public class MioRistorante {
-    private static ArrayList<Cliente> clienti;
     private static Scanner tastiera;
 
     // Inizializiamo clienti e tastiera in blocco static
     static {
-        clienti = new ArrayList<>();
         tastiera = new Scanner(System.in);
     }
 
@@ -73,10 +71,10 @@ public class MioRistorante {
                 addOrdine();
                 break;
             case 5:
-                statisticheNumeroPiatti();
+                MyResturantController.statisticheNumeroPiatti();
                 break;
             case 6:
-                statisticheTipoMenu();
+                MyResturantController.statisticheTipoMenu();
                 break;
             case 100:
                 System.out.println("L'applicazione si sta chiudendo");
@@ -87,48 +85,21 @@ public class MioRistorante {
     }
 
     /**
-     * Metodo che chiede dati di un cliente da aggiungere e richiama `addClienteCM` per crearlo e aggiungerlo
+     * Metodo che chiede dati di un cliente da aggiungere e richiama il metodo controller `addCliente` per crearlo e aggiungerlo
      */
     public static void addCliente() {
         System.out.println("Id del nuovo cliente: ");
         String id = tastiera.next();
         System.out.println("Anno di nascita del cliente: ");
         int anno = tastiera.nextInt();
-        System.out.println("Data di registrazione del cliente: [aaaa-mm-gg]");
+        System.out.println("Data diregistrazione del cliente: [aaaa-mm-gg]");
         LocalDate registrazione = LocalDate.parse(tastiera.next());
 
         try {
-            addClienteCM(id, anno, registrazione);
+            MyResturantController.addCliente(id, anno, registrazione);
         } catch (ClienteNonAggiunto e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    /**
-     * Metodo che gestisce l'input ricevuto dal `addCliente` per aggiungere un nuovo cliente alla lista
-     *
-     * @param id      id del nuovo cliente (può essere vuoto)
-     * @param nascita anno di nascita del nuovo cliente
-     * @param reg     data di registrazione del nuovo cliente
-     * @throws ClienteNonAggiunto il cliente non è stato aggiunto per qualche motivo
-     */
-    public static void addClienteCM(String id, int nascita, LocalDate reg) throws ClienteNonAggiunto {
-        Cliente c;
-        // Se l'id inserito è vuoto, usa il costruttore che genera l'id randomicamente
-        if (id.isEmpty()) {
-            try {
-                c = new Cliente(nascita, reg);
-            } catch (IdAlreadyUsed e) {
-                throw new ClienteNonAggiunto(e.getMessage());
-            }
-        } else {
-            try {
-                c = new Cliente(id, nascita, reg);
-            } catch (IdAlreadyUsed e) {
-                throw new ClienteNonAggiunto(e.getMessage());
-            }
-        }
-        clienti.add(c);
     }
 
     /**
@@ -138,27 +109,12 @@ public class MioRistorante {
         System.out.println("Id del cliente da cercare: ");
         String id = tastiera.next();
 
-        Cliente c = findClienteCM(id);
+        Cliente c = MyResturantController.findCliente(id);
         if (c != null) {
             System.out.println(c);
         } else {
             System.out.println("Cliente non trovato");
         }
-    }
-
-    /**
-     * Cerca un cliente fornendo un id
-     *
-     * @param id id del cliente da cercare
-     * @return il cliente con l'id cercato, oppure `null` se non viene trovato
-     */
-    public static Cliente findClienteCM(String id) {
-        for (Cliente c : clienti) {
-            if (c.getId().equals(id)) {
-                return c;
-            }
-        }
-        return null;
     }
 
     /**
@@ -170,7 +126,7 @@ public class MioRistorante {
         System.out.println("Età massima dei clienti da cercare: ");
         int max = tastiera.nextInt();
 
-        ArrayList<Cliente> ricerca = findClienteEtaCM(min, max);
+        ArrayList<Cliente> ricerca = MyResturantController.findClienteEta(min, max);
         if (ricerca.isEmpty()) {
             System.out.println("Nessun cliente nel range di età selezionato");
         } else {
@@ -181,26 +137,7 @@ public class MioRistorante {
     }
 
     /**
-     * Trova una lista di clienti con età compresa tra un valore minimo e un valore massimo
-     *
-     * @param min età minima dei clienti da cercare
-     * @param max età massima dei clienti da cercare
-     * @return lista di clienti con età compresa tra `min` e `max`
-     */
-    public static ArrayList<Cliente> findClienteEtaCM(int min, int max) {
-        ArrayList<Cliente> results = new ArrayList<>();
-        int anno = LocalDate.now().getYear();
-        for (Cliente c : clienti) {
-            int eta = anno - c.getNascita();
-            if (min <= eta && eta <= max) {
-                results.add(c);
-            }
-        }
-        return results;
-    }
-
-    /**
-     * Questo metodo chiede i dati relativi a una nuova ordinazione e crea l'ordine tramite `addOrdineCM`
+     * Questo metodo chiede i dati relativi a una nuova ordinazione e crea l'ordine tramite `addOrdine`
      */
     public static void addOrdine() {
         System.out.println("Id del cliente che sta ordinando: ");
@@ -211,55 +148,6 @@ public class MioRistorante {
         System.out.println(TipoMenu.tipiMenu());
         TipoMenu tipo = TipoMenu.tipoMenu(tastiera.nextInt());
 
-        addOrdineCM(id, numPiatti, tipo);
-    }
-
-    /**
-     * Aggiunge un ordine al cliente con id selezionato
-     *
-     * @param id        id del cliente che ha ordinato
-     * @param numPiatti numero di piatti nel pasto
-     * @param tipoMenu  tipo di menù ordinato
-     */
-    public static void addOrdineCM(String id, int numPiatti, TipoMenu tipoMenu) {
-        Cliente c = findClienteCM(id);
-        if (null != c) {
-            c.addOrdine(numPiatti, tipoMenu, LocalDate.now());
-        }
-    }
-
-    /**
-     * Stampa il numero minimo, il numero massimo e il numero medio di piatti per un ordine, leggendo i dati direttamente dalla lista di numeri di piatti
-     */
-    public static void statisticheNumeroPiatti() {
-        IntSummaryStatistics stats = clienti.stream().flatMapToInt(c -> c.getListNumPiatti().stream().mapToInt(Integer::intValue)).summaryStatistics();
-
-        if (stats.getCount() == 0) {
-            System.out.println("Non è stato ancora caricato nessun ordine");
-            return;
-        }
-
-        System.out.println("Il numero minimo di piatti in un ordine è: " + stats.getMin());
-        System.out.println("Il numero massimo di piatti in un ordine è: " + stats.getMax());
-        System.out.println("Il numero medio di piatti in un ordine è: " + stats.getAverage());
-    }
-
-    /**
-     * Stampare il numero di ordini per ciascun tipo di menù dalla lista di tipi di menu ordinati
-     */
-    public static void statisticheTipoMenu() {
-        Map<TipoMenu, Integer> map = new HashMap<>();
-        for (Cliente c : clienti) {
-            for (TipoMenu tm : c.getListTipoMenu()) {
-                map.merge(tm, 1, Integer::sum);
-            }
-        }
-
-        //eccezione
-        if (!map.isEmpty()) {
-            map.forEach((K, n) -> System.out.println(K + ": " + n));
-        } else {
-            System.out.println("non sono ancora state registrate ordinazioni");
-        }
+        MyResturantController.addOrdine(id, numPiatti, tipo);
     }
 }
