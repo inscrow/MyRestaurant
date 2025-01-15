@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="progetto FX ben impostato" />
+    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="b">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,20 +47,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.main.executor": "Run",
-    "Application.mainApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/marco/IdeaProjects/demo2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MioRistorante.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.mainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marco/Documents/JavaFX/MyRestaurant&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.main">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.main" />
@@ -138,13 +145,22 @@
       <option name="project" value="LOCAL" />
       <updated>1736608625507</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="b">
+      <option name="closed" value="true" />
+      <created>1736608795949</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1736608795949</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sas" />
     <MESSAGE value="sos" />
     <MESSAGE value="progetto FX ben impostato" />
-    <option name="LAST_COMMIT_MESSAGE" value="progetto FX ben impostato" />
+    <MESSAGE value="b" />
+    <option name="LAST_COMMIT_MESSAGE" value="b" />
   </component>
 </project>
