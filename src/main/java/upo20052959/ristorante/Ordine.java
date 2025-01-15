@@ -7,7 +7,7 @@ import java.time.LocalDate;
  */
 public class Ordine {
     private int numPiatti;
-    private String tipoMenu;
+    private TipoMenu tipoMenu;
     private final LocalDate data;
 
     /**
@@ -16,9 +16,9 @@ public class Ordine {
      * @param tipoMenu tipo di menu
      * @param data data dell'ordine
      */
-    public Ordine(int numPiatti, String tipoMenu, LocalDate data) {
+    public Ordine(int numPiatti, TipoMenu tipoMenu, LocalDate data) {
         this.numPiatti = numPiatti;
-        this.tipoMenu = tipoMenu.toLowerCase(); // impostiamo sempre il tipo ordine in lower case
+        this.tipoMenu = tipoMenu; // impostiamo sempre il tipo ordine in lower case
         this.data = data;
     }
 
@@ -42,7 +42,7 @@ public class Ordine {
      * Restituisce una stringa che descrive il tipo di menu
      * @return tipo di menu ordinato
      */
-    public String getTipoMenu() {
+    public TipoMenu getTipoMenu() {
         return tipoMenu;
     }
 
@@ -50,8 +50,8 @@ public class Ordine {
      * Cambia il tipo di menu ordinato
      * @param tipoMenu nuovo tipo di menu dell'ordine
      */
-    public void setTipoMenu(String tipoMenu) {
-        this.tipoMenu = tipoMenu.toLowerCase();
+    public void setTipoMenu(TipoMenu tipoMenu) {
+        this.tipoMenu = tipoMenu;
     }
 
     /**
@@ -64,7 +64,7 @@ public class Ordine {
 
     @Override
     public String toString() {
-        return numPiatti + " " + tipoMenu + " " + data;
+        return numPiatti + " " + tipoMenu.nome() + " " + data;
     }
 
     /**

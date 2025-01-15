@@ -10,7 +10,7 @@ public class TipoMenuTest {
   @Test
   public void selezioneTest() {
     TipoMenu t = TipoMenu.CARNE;
-    TipoMenu s = TipoMenu.selezione(t.codice());
+    TipoMenu s = TipoMenu.tipoMenu(t.id());
     Assertions.assertEquals(t, s);
   }
 }
