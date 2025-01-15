@@ -1,0 +1,106 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #f0f7f4, #e8f4f2);
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+.menu-bar {
+    -fx-background-color: linear-gradient(to right, #2E7D32, #388E3C);
+}
+
+.menu-bar .label {
+    -fx-text-fill: white;
+}
+
+.tab-pane {
+    -fx-tab-min-height: 30px;
+}
+
+.tab {
+    -fx-background-color: #81C784;
+    -fx-padding: 5px 15px;
+}
+
+.tab:selected {
+    -fx-background-color: #4CAF50;
+}
+
+.tab-label {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #7B1FA2;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.button:hover {
+    -fx-background-color: #9C27B0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-border-color: #81C784;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
+}
+
+.text-field:focused {
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+.table-row-cell {
+    -fx-background-color: #f0f7f4;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #e8f4f2;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #81C784;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #81C784;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+#statusLabel {
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 1, 0, 0, 1);
+}
+
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #81C784;
+    -fx-border-radius: 5;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #81C784;
+    -fx-border-radius: 5;
+}
