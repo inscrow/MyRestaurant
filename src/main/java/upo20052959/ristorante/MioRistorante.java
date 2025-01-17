@@ -21,6 +21,7 @@ public class MioRistorante {
         clienti = new ArrayList<>();
         tastiera = new Scanner(System.in);
     }
+
     //TODO: aggiungere il javadoc
     public static ArrayList<Cliente> getClienti() {
         return clienti;
@@ -39,8 +40,6 @@ public class MioRistorante {
             esegui(scelta);
         } while (scelta != 100);
     }*/
-
-
 
 
     /**
@@ -219,7 +218,8 @@ public class MioRistorante {
         TipoMenu tipo = tastiera.next();
 
         addOrdineCM(id, numPiatti, tipo);
-    }*/
+    }
+    */
 
     /**
      * Aggiunge un ordine al cliente con id selezionato
@@ -267,7 +267,10 @@ public class MioRistorante {
      * Stampa il numero minimo, il numero massimo e il numero medio di piatti per un ordine, leggendo i dati direttamente dalla lista di numeri di piatti
      */
     public static void statisticheNumeroPiattiLista() {
-        IntSummaryStatistics stats = clienti.stream().flatMapToInt(c -> c.getListNumPiatti().stream().mapToInt(Integer::intValue)).summaryStatistics();
+        IntSummaryStatistics stats = clienti.stream().flatMapToInt(c ->
+                c.getListNumPiatti().stream()
+                        .mapToInt(Integer::intValue))
+                .summaryStatistics();
 
         stampaStatisticheNumPiatti(stats);
     }
@@ -292,13 +295,12 @@ public class MioRistorante {
      * Stampare il numero di ordini per ciascun tipo di menù dalla lista di tipi di menu ordinati
      */
     public static void statisticheTipoMenuLista() {
-        Map< TipoMenu, Integer> map = new HashMap<>();
+        Map<TipoMenu, Integer> map = new HashMap<>();
         for (Cliente c : clienti) {
             for (TipoMenu tm : c.getListTipoMenu()) {
                 map.merge(tm, 1, Integer::sum);
             }
         }
-
 
         //eccezione
         if (!map.isEmpty()) {

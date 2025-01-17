@@ -50,16 +50,12 @@ public class MyResturantController {
     @FXML private DatePicker dataOrdine;
     //tabella di visualizzazione della lista degli ordini
     @FXML private TableView<Ordine> ordiniTable;
-    @FXML private TableColumn<Ordine, String> clienteIdOrdineColumn;//TODO ERR: non può essere inserito perchè l'oggetto ordine
     //non possiede l'attributo id
     @FXML private TableColumn<Ordine, Integer> numeroPiattiColumn;
     @FXML private TableColumn<Ordine, String> tipoMenuColumn;
     @FXML private TableColumn<Ordine, LocalDate> dataOrdineColumn;
 
-    //statistiche
-    @FXML private TextArea statisticheArea;
-    @FXML private Label statusLabel;
-    @FXML private TabPane tabPane;
+
 
     // Liste di clienti e ordini                                   (studiare che è sta roba)
     //forse utili per la oservation list ma toglierle per le operazioni comuni
@@ -82,7 +78,6 @@ public class MyResturantController {
         clientiTable.setItems(clientiList);
 
         // Inizializza le colonne della tabella ordini
-        clienteIdOrdineColumn.setCellValueFactory(new PropertyValueFactory<>("clienteId"));
         numeroPiattiColumn.setCellValueFactory(new PropertyValueFactory<>("numPiatti"));
         tipoMenuColumn.setCellValueFactory(new PropertyValueFactory<>("tipoMenu"));
         dataOrdineColumn.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -274,6 +269,7 @@ public class MyResturantController {
             }
 
             Ordine ordine = new Ordine(numPiatti, tipoMenu, data);
+
             ordiniList.add(ordine);
             clearOrdineFields();
             showStatus("Ordine aggiunto con successo");
@@ -284,6 +280,13 @@ public class MyResturantController {
         }
     }
 
+
+
+    //usare le funzioni del model
+    //statistiche
+    @FXML private TextArea statisticheArea;
+    @FXML private Label statusLabel;
+    @FXML private TabPane tabPane;
     /**
      * Visualizza le statistiche sui piatti.
      */
@@ -292,6 +295,8 @@ public class MyResturantController {
         StringBuilder stats = new StringBuilder("Statistiche Numero Piatti:\n\n");
         for (Cliente c : clientiList) {
             stats.append("Cliente ").append(c.getId()).append(":\n");
+
+
             ArrayList<Integer> numPiatti = c.getListNumPiatti();
             for (Integer num : numPiatti) {
                 stats.append("- ").append(num).append(" piatti\n");

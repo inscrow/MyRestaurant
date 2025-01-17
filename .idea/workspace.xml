@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="aggiunta di migliorie">
+    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzione di errori e aggiunta di migliorie grafiche">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/TipoMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/styles.css" afterDir="false" />
     </list>
@@ -65,7 +63,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/marco/Documents/JavaFX/MyRestaurant2/src/main/java/upo20052959/ristorante",
+    "last_opened_file_path": "C:/Users/marco/Documents/JavaFX/MyRestaurant",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -192,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737081607484</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="correzione di errori e aggiunta di migliorie grafiche">
+      <option name="closed" value="true" />
+      <created>1737088007498</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1737088007498</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,6 +219,7 @@
     <MESSAGE value="b" />
     <MESSAGE value="voglio un aumento" />
     <MESSAGE value="implementazione dell'interfaccia grafica (sono presenti ancora bug e parti incomplete )" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementazione dell'interfaccia grafica (sono presenti ancora bug e parti incomplete )" />
+    <MESSAGE value="correzione di errori e aggiunta di migliorie grafiche" />
+    <option name="LAST_COMMIT_MESSAGE" value="correzione di errori e aggiunta di migliorie grafiche" />
   </component>
 </project>
