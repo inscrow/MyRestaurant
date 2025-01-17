@@ -21,11 +21,16 @@ public class MioRistorante {
         clienti = new ArrayList<>();
         tastiera = new Scanner(System.in);
     }
+    //TODO: aggiungere il javadoc
+    public static ArrayList<Cliente> getClienti() {
+        return clienti;
+    }
 
     /**
      * Metodo principale dell'applicazione, stampa il menù principale ed esegue le scelte in loop
      */
-   /*public static void main(String[] args) {
+   /*
+   public static void main(String[] args) {
         int scelta;
 
         do {
@@ -70,13 +75,13 @@ public class MioRistorante {
                 findClienteEta();
                 break;
             case 4:
-                addOrdine();
+                //addOrdine();
                 break;
             case 5:
                 statisticheNumeroPiattiClasse();
                 break;
             case 6:
-                statisticheTipoMenuClasse();
+                statisticheTipoMenuLista();
                 break;
             case 100:
                 System.out.println("L'applicazione si sta chiudendo");
@@ -115,6 +120,7 @@ public class MioRistorante {
     public static void addClienteCM(String id, int nascita, LocalDate reg) throws ClienteNonAggiunto {
         Cliente c;
         // Se l'id inserito è vuoto, usa il costruttore che genera l'id randomicamente
+        //TODO: se si inserisce l'id randomicamente si fa in modo che si escludano quelli già esistenti
         if (id.isEmpty()) {
             try {
                 c = new Cliente(nascita, reg);
@@ -202,16 +208,18 @@ public class MioRistorante {
     /**
      * Questo metodo chiede i dati relativi a una nuova ordinazione e crea l'ordine tramite `addOrdineCM`
      */
+    //TODO: da aggiustare l'input per l'enumerazione
+    /*
     public static void addOrdine() {
         System.out.println("Id del cliente che sta ordinando: ");
         String id = tastiera.next();
         System.out.println("Numero di piatti ordinati: ");
         int numPiatti = tastiera.nextInt();
         System.out.println("Tipo di menù scelto: ");
-        String tipo = tastiera.next();
+        TipoMenu tipo = tastiera.next();
 
         addOrdineCM(id, numPiatti, tipo);
-    }
+    }*/
 
     /**
      * Aggiunge un ordine al cliente con id selezionato
@@ -220,7 +228,7 @@ public class MioRistorante {
      * @param numPiatti numero di piatti nel pasto
      * @param tipoMenu  tipo di menù ordinato
      */
-    public static void addOrdineCM(String id, int numPiatti, String tipoMenu) {
+    public static void addOrdineCM(String id, int numPiatti, TipoMenu tipoMenu) {
         Cliente c = findClienteCM(id);
         if (null != c) {
             c.addOrdine(numPiatti, tipoMenu, LocalDate.now());
@@ -239,15 +247,15 @@ public class MioRistorante {
     /**
      * Stampare il numero di ordini per ciascun tipo di menù dalla lista di ordini
      */
-    public static void statisticheTipoMenuClasse() {
-        Map<String, Integer> map = new HashMap<>();
-
+    public static void statisticheTipoMenu() {
+        Map<TipoMenu, Integer> map = new HashMap<>();
         for (Cliente c : clienti) {
-            for (Ordine o : c.getOrdini()) {
-                map.merge(o.getTipoMenu(), 1, Integer::sum);
+            for (TipoMenu tm : c.getListTipoMenu()) {
+                map.merge(tm, 1, Integer::sum);
             }
         }
 
+        //eccezione
         if (!map.isEmpty()) {
             map.forEach((K, n) -> System.out.println(K + ": " + n));
         } else {
@@ -284,9 +292,9 @@ public class MioRistorante {
      * Stampare il numero di ordini per ciascun tipo di menù dalla lista di tipi di menu ordinati
      */
     public static void statisticheTipoMenuLista() {
-        Map<String, Integer> map = new HashMap<>();
+        Map< TipoMenu, Integer> map = new HashMap<>();
         for (Cliente c : clienti) {
-            for (String tm : c.getListTipoMenu()) {
+            for (TipoMenu tm : c.getListTipoMenu()) {
                 map.merge(tm, 1, Integer::sum);
             }
         }

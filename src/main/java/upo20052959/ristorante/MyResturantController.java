@@ -1,10 +1,3 @@
-// Questo controller gestisce le interazioni dell'utente con l'interfaccia grafica dell'applicazione ristorante.
-// Include metodi per aggiungere clienti, cercare clienti, gestire ordini e visualizzare statistiche.
-// Utilizza JavaFX per la creazione dell'interfaccia utente e per la gestione degli eventi.
-// Le liste di clienti e ordini sono implementate come ObservableList per aggiornamenti automatici dell'interfaccia.
-// Ogni metodo è annotato con @FXML per collegarlo agli elementi definiti nel file FXML.
-// Questo controller è fondamentale per il funzionamento dell'applicazione e per garantire un'esperienza utente fluida.
-
 package upo20052959.ristorante;
 
 import javafx.animation.FadeTransition;
@@ -20,6 +13,9 @@ import javafx.util.Duration;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Controller principale dell'applicazione ristorante.
@@ -30,63 +26,49 @@ public class MyResturantController {
     /* campi IO dell'interfaccia */
 
     //gestione clienti
-    @FXML
-    private TextField clienteIdField;
-    @FXML
-    private TextField clienteAnnoField;
-    @FXML
-    private DatePicker clienteDataRegistrazione;
-    @FXML
-    private TableView<Cliente> clientiTable;
-    @FXML
-    private TableColumn<Cliente, String> idColumn;
-    @FXML
-    private TableColumn<Cliente, Integer> annoNascitaColumn;
-    @FXML
-    private TableColumn<Cliente, LocalDate> dataRegistrazioneColumn;
-    @FXML
-    private TextField searchIdField;
-    @FXML
-    private TextField etaMinField;
-    @FXML
-    private TextField etaMaxField;
+    @FXML private TextField clienteAnnoField;
+    @FXML private TextField clienteIdField;
+    @FXML private DatePicker clienteDataRegistrazione;
+
+    /*tabelle*/
+    @FXML private TableView<Cliente> clientiTable;
+
+    @FXML private TableColumn<Cliente, String> idColumn;
+    @FXML private TableColumn<Cliente, Integer> annoNascitaColumn;
+    @FXML private TableColumn<Cliente, LocalDate> dataRegistrazioneColumn;
+
+    /*ricerche*/
+    @FXML private TextField searchIdField;
+    @FXML private TextField etaMinField;
+    @FXML private TextField etaMaxField;
 
     //gestione ordini
-    @FXML
-    private TextField ordineClienteIdField;
-    @FXML
-    private TextField numeroPiattiField;
-    //menu a tendina : combobox
-    @FXML
-    private TextField tipoMenuField;
+    @FXML private TextField ordineClienteIdField;
+    @FXML private TextField numeroPiattiField;
+    @FXML private ComboBox<String> tipoMenuField;
     //DatePicker calendario da cui selezionare la data
-    @FXML
-    private DatePicker dataOrdine;
+    @FXML private DatePicker dataOrdine;
     //tabella di visualizzazione della lista degli ordini
-    @FXML
-    private TableView<Ordine> ordiniTable;
-    @FXML
-    private TableColumn<Ordine, String> clienteIdOrdineColumn;//TODO ERR: non può essere inserito perchè l'oggetto ordine
+    @FXML private TableView<Ordine> ordiniTable;
+    @FXML private TableColumn<Ordine, String> clienteIdOrdineColumn;//TODO ERR: non può essere inserito perchè l'oggetto ordine
     //non possiede l'attributo id
-    @FXML
-    private TableColumn<Ordine, Integer> numeroPiattiColumn;
-    @FXML
-    private TableColumn<Ordine, String> tipoMenuColumn;
-    @FXML
-    private TableColumn<Ordine, LocalDate> dataOrdineColumn;
+    @FXML private TableColumn<Ordine, Integer> numeroPiattiColumn;
+    @FXML private TableColumn<Ordine, String> tipoMenuColumn;
+    @FXML private TableColumn<Ordine, LocalDate> dataOrdineColumn;
 
     //statistiche
-    @FXML
-    private TextArea statisticheArea;
-    @FXML
-    private Label statusLabel;
-    @FXML
-    private TabPane tabPane;
+    @FXML private TextArea statisticheArea;
+    @FXML private Label statusLabel;
+    @FXML private TabPane tabPane;
 
     // Liste di clienti e ordini                                   (studiare che è sta roba)
     //forse utili per la oservation list ma toglierle per le operazioni comuni
     private ObservableList<Cliente> clientiList = FXCollections.observableArrayList();
     private ObservableList<Ordine> ordiniList = FXCollections.observableArrayList();
+
+
+
+
 
     /**
      * Inizializza il controller.
@@ -94,6 +76,8 @@ public class MyResturantController {
      */
     @FXML
     public void initialize() {
+    // Inizializza le stringhe al capo delle colonne per nominarle
+
         // Inizializza le colonne della tabella clienti
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         annoNascitaColumn.setCellValueFactory(new PropertyValueFactory<>("nascita"));
@@ -107,9 +91,24 @@ public class MyResturantController {
         dataOrdineColumn.setCellValueFactory(new PropertyValueFactory<>("data"));
         ordiniTable.setItems(ordiniList);
 
+        //inizializza input che necessitano dell'inizializzazione
+        // Inizializza il ComboBox per il tipo di menu con tutti i valori dell'enum
+        tipoMenuField.getItems().addAll(
+            TipoMenu.CARTA.toString(),
+            TipoMenu.CARNE.toString(),
+            TipoMenu.GLUTEN.toString(),
+            TipoMenu.PESCE.toString(),
+            TipoMenu.VEGANO.toString(),
+            TipoMenu.VEGETARIANO.toString()
+        );
+        tipoMenuField.setPromptText("Tipo Menu");
+
+
+
+    //effetti visivi
         // Aggiungi effetti di fade-in all'avvio
         if (clientiTable != null) {
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), clientiTable);
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), clientiTable);
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
             fadeIn.play();
@@ -143,6 +142,14 @@ public class MyResturantController {
         }
     }
 
+
+
+
+
+
+
+//associacioni del model al view atravverso il controller
+
     /**
      * Aggiunge un nuovo cliente alla lista.
      */
@@ -157,28 +164,28 @@ public class MyResturantController {
                 showError("Seleziona una data di registrazione");
                 return;
             }
-            //aaaaaaaaaaaaaaa veniva usato il costruttore della classe cliente e non qullo del della classe Mioristorante
-            Cliente cliente;
-            // Se l'ID è vuoto, generiamo un ID automatico
-            if (id.isEmpty()) {
-                cliente = new Cliente(anno, registrazione);
-            } else {
-                // Se l'ID è specificato, lo usiamo
-                cliente = new Cliente(id, anno, registrazione);
+            try {
+                MioRistorante.addClienteCM(id, anno, registrazione);
+                showStatus("Cliente aggiunto con successo");
+                clearClienteFields();
+            }catch (ClienteNonAggiunto e){
+                showError(e.getMessage());
             }
 
-            // Aggiungi il cliente sia alla lista locale che a quella statica
-            clientiList.add(cliente);
-            MioRistorante.addClienteCM(cliente.getId(), cliente.getNascita(), cliente.getRegistrazione());
-            clearClienteFields();
-            showStatus("Cliente aggiunto con successo");
+            clientiList = FXCollections.observableArrayList(MioRistorante.getClienti());
+            clientiTable.setItems(clientiList);
+
+
+
         } catch (NumberFormatException e) {
             showError("Anno di nascita non valido");
         } catch (IdAlreadyUsed e) {
             showError("ID già in uso");
         } catch (Exception e) {
-            showError("Errore nell'aggiunta del cliente: " + e.getMessage());
+            //showError("Errore nell'aggiunta del cliente: " + e.getMessage());
         }
+
+
     }
 
     /**
@@ -187,15 +194,20 @@ public class MyResturantController {
     @FXML
     protected void handleSearchById() {
         String id = searchIdField.getText().trim();
+
         if (id.isEmpty()) {
             showError("Inserisci un ID da cercare");
             return;
         }
 
         Cliente cliente = MioRistorante.findClienteCM(id);
+
         if (cliente != null) {
             clientiTable.getItems().clear();
-            showStatus("Cliente trovato: " + cliente.toString());
+            ObservableList<Cliente> tmp = FXCollections.observableArrayList();
+            tmp.add(cliente);
+            clientiTable.setItems(tmp);
+            showStatus("Cliente trovato");
         } else {
             showError("Cliente non trovato");
         }
@@ -210,15 +222,15 @@ public class MyResturantController {
             int min = Integer.parseInt(etaMinField.getText().trim());
             int max = Integer.parseInt(etaMaxField.getText().trim());
 
-            int annoCorrente = LocalDate.now().getYear();
             clientiTable.getItems().clear();
-            //TODO: esiste già questa funzione
-            for (Cliente c : clientiList) {
-                int eta = annoCorrente - c.getNascita();
-                if (eta >= min && eta <= max) {
-                    clientiTable.getItems().add(c);
-                }
-            }
+
+            ObservableList ricerca = FXCollections.observableArrayList();
+
+            LinkedList<Cliente> sas = new LinkedList<>(MioRistorante.findClienteEtaCM(min, max)) ;
+            ricerca = FXCollections.observableArrayList(sas);
+            clientiTable.setItems(ricerca);
+
+            int annoCorrente = LocalDate.now().getYear();
 
             if (clientiTable.getItems().isEmpty()) {
                 showError("Nessun cliente trovato in questo range di età");
@@ -236,36 +248,41 @@ public class MyResturantController {
         try {
             String clienteId = ordineClienteIdField.getText().trim();
             int numPiatti = Integer.parseInt(numeroPiattiField.getText().trim());
-            String tipoMenu = tipoMenuField.getText().trim();
+            String tipoMenuStr = tipoMenuField.getValue();
             LocalDate data = dataOrdine.getValue();
 
-            if (clienteId.isEmpty() || tipoMenu.isEmpty() || data == null) {
+            if (clienteId.isEmpty() || tipoMenuStr == null || data == null) {
                 showError("Compila tutti i campi");
                 return;
             }
 
-            //TODO:esiste già questa funzione, usare quella già esistente
-            Cliente cliente = null;
-            // if (MioRistorante.findClienteCM(clienteId) != null) cliente = MioRistorante.findClienteCM(clienteId);
-            for (Cliente c : clientiList) {
-                if (c.getId().equals(clienteId)) {
-                    cliente = c;
+
+            TipoMenu tipoMenu = null;
+            for (TipoMenu tipo : TipoMenu.values()) {
+                if (tipo.toString().equals(tipoMenuStr)) {
+                    tipoMenu = tipo;
                     break;
                 }
             }
 
+            if (tipoMenu == null) {
+                showError("Tipo menu non valido");
+                return;
+            }
+
+            // Verifica che il cliente esista
+            Cliente cliente = MioRistorante.findClienteCM(clienteId);
             if (cliente == null) {
                 showError("Cliente non trovato");
                 return;
             }
 
             Ordine ordine = new Ordine(numPiatti, tipoMenu, data);
-            cliente.getOrdini().add(ordine);
             ordiniList.add(ordine);
             clearOrdineFields();
             showStatus("Ordine aggiunto con successo");
         } catch (NumberFormatException e) {
-            showError("Numero piatti non valido");
+            showError("Numero di piatti non valido");
         } catch (Exception e) {
             showError("Errore nell'aggiunta dell'ordine: " + e.getMessage());
         }
@@ -292,17 +309,44 @@ public class MyResturantController {
      * Visualizza le statistiche sui menu.
      */
     @FXML
-    protected void handleStatisticheMenu() {
+    protected void statisticheTipoMenuClasse() {
         StringBuilder stats = new StringBuilder("Statistiche Tipo Menu:\n\n");
-        for (Cliente c : clientiList) {
-            stats.append("Cliente ").append(c.getId()).append(":\n");
-            ArrayList<String> tipiMenu = c.getListTipoMenu();
-            for (String tipo : tipiMenu) {
-                stats.append("- Menu ").append(tipo).append("\n");
-            }
-            stats.append("\n");
+        
+        // Crea un contatore per ogni tipo di menu
+        Map<TipoMenu, Integer> conteggio = new EnumMap<>(TipoMenu.class);
+        for (TipoMenu tipo : TipoMenu.values()) {
+            conteggio.put(tipo, 0);
         }
+        
+        // Conta le occorrenze di ogni tipo di menu
+        for (Ordine ordine : ordiniList) {
+            TipoMenu tipo = ordine.getTipoMenu();
+            conteggio.put(tipo, conteggio.get(tipo) + 1);
+        }
+        
+        // Genera le statistiche
+        for (Map.Entry<TipoMenu, Integer> entry : conteggio.entrySet()) {
+            if (entry.getValue() > 0) {
+                stats.append("Menu ").append(entry.getKey()).append(": ")
+                     .append(entry.getValue()).append(" ordini\n");
+            }
+        }
+        
+        if (ordiniList.isEmpty()) {
+            stats.append("Nessun ordine presente nel sistema.");
+        }
+        
         statisticheArea.setText(stats.toString());
+    }
+
+    /**
+     * Ricarica la tabella clienti con la lista completa
+     */
+    @FXML
+    protected void handleRefreshTable() {
+        clientiList = FXCollections.observableArrayList(MioRistorante.getClienti());
+        clientiTable.setItems(clientiList);
+        showStatus("Lista clienti aggiornata");
     }
 
     /**
@@ -329,7 +373,7 @@ public class MyResturantController {
     private void clearOrdineFields() {
         ordineClienteIdField.clear();
         numeroPiattiField.clear();
-        tipoMenuField.clear();
+        tipoMenuField.setValue(null);
         dataOrdine.setValue(null);
     }
 
@@ -350,4 +394,10 @@ public class MyResturantController {
     private void showStatus(String message) {
         statusLabel.setText(message);
     }
+
+
+
+
+
+
 }

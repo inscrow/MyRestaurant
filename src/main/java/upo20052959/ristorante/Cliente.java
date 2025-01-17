@@ -153,11 +153,12 @@ public class Cliente {
     /**
      * Aggiunge un ordine alla lista ordini associati al cliente 
      * @param numPiatti numero di piatti nell'ordine
-     * @param tipoMenu tipo di menù scelto (carne, pesce, vegetariano, ...)
+     * @param  Tmenu tipo di menù scelto (carne, pesce, vegetariano, ...)
      * @param data data in cui è stato effettuato l'ordine
      */
-    public void addOrdine(int numPiatti, TipoMenu tipoMenu, LocalDate data) {
-        Ordine o = new Ordine(numPiatti, tipoMenu, data);
+
+    public void addOrdine(int numPiatti,  TipoMenu Tmenu, LocalDate data) {
+        Ordine o = new Ordine(numPiatti,  Tmenu , data);
         ordini.add(o);
     }
 

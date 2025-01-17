@@ -11,14 +11,14 @@ public class Ordine {
     private final LocalDate data;
 
     /**
-     * Crea un ordine con numero di piatti ordinati, tipo di menu e data dell'ordine
+     * Crea un ordine    con numero di piatti ordinati, tipo di menu e data dell'ordine
      * @param numPiatti numero di piatti ordinati
-     * @param tipoMenu tipo di menu
+     * @param tipo tipo di menu
      * @param data data dell'ordine
      */
-    public Ordine(int numPiatti, TipoMenu tipoMenu, LocalDate data) {
+    public Ordine(int numPiatti, TipoMenu  tipo, LocalDate data) {
         this.numPiatti = numPiatti;
-        this.tipoMenu = tipoMenu; // impostiamo sempre il tipo ordine in lower case
+        this.tipoMenu = tipo; // impostiamo sempre il tipo ordine in lower case
         this.data = data;
     }
 
@@ -46,12 +46,13 @@ public class Ordine {
         return tipoMenu;
     }
 
+
     /**
      * Cambia il tipo di menu ordinato
-     * @param tipoMenu nuovo tipo di menu dell'ordine
+     * @param String nuovo tipo di menu dell'ordine
      */
-    public void setTipoMenu(TipoMenu tipoMenu) {
-        this.tipoMenu = tipoMenu;
+    public void setString(TipoMenu String) {
+        this.tipoMenu = String;
     }
 
     /**
@@ -64,7 +65,7 @@ public class Ordine {
 
     @Override
     public String toString() {
-        return numPiatti + " " + tipoMenu.nome() + " " + data;
+        return numPiatti + " " + tipoMenu + " " + data;
     }
 
     /**
