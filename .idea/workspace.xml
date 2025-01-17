@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzione di errori e aggiunta di migliorie grafiche">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/styles.css" afterDir="false" />
-    </list>
+    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737088007498</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )">
+      <option name="closed" value="true" />
+      <created>1737093281516</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1737093281516</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +222,7 @@
     <MESSAGE value="voglio un aumento" />
     <MESSAGE value="implementazione dell'interfaccia grafica (sono presenti ancora bug e parti incomplete )" />
     <MESSAGE value="correzione di errori e aggiunta di migliorie grafiche" />
-    <option name="LAST_COMMIT_MESSAGE" value="correzione di errori e aggiunta di migliorie grafiche" />
+    <MESSAGE value="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )" />
+    <option name="LAST_COMMIT_MESSAGE" value="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )" />
   </component>
 </project>
