@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="598.0" prefWidth="743.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upo20052959.ristorante.MyResturantController">
+<BorderPane prefHeight="598.0" prefWidth="839.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upo20052959.ristorante.MyResturantController">
    <effect>
       <DropShadow color="#00000033" radius="10" spread="0.1" />
    </effect>
@@ -35,7 +35,7 @@
       </MenuBar>
    </top>
    <center>
-      <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" prefHeight="537.0" prefWidth="737.0" tabClosingPolicy="UNAVAILABLE">
          <Tab text="Gestione Clienti">
             <VBox prefHeight="513.0" prefWidth="743.0">
                <padding>
@@ -62,13 +62,13 @@
                      <TableColumn fx:id="dataRegistrazioneColumn" prefWidth="164.0" text="Data Registrazione" />
                   </columns>
                </TableView>
-               <HBox spacing="10.0">
+               <HBox prefHeight="34.0" prefWidth="754.0" spacing="10.0">
                   <TextField fx:id="searchIdField" promptText="Cerca per ID" />
                   <Button onAction="#handleSearchById" text="Cerca" />
                   <TextField fx:id="etaMinField" promptText="Età Minima" />
                   <TextField fx:id="etaMaxField" promptText="Età Massima" />
                   <Button onAction="#handleSearchByEta" text="Cerca per Età" />
-                  <Button onAction="#handleRefreshTable" text="Ricarica Lista">
+                  <Button onAction="#handleRefreshTable" prefHeight="23.0" prefWidth="170.0" text=" Ripristina la tabella ">
                      <effect>
                         <DropShadow color="#00000033" radius="5" />
                      </effect>

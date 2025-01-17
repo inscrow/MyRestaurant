@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="voglio un aumento">
-      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/TipoMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="aggiunta di migliorie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Ordine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/TipoMenu.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,22 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MioRistorante.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.mainApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/marco/Documents/JavaFX/MyRestaurant&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.MioRistorante.executor": "Run",
+    "Application.main.executor": "Run",
+    "Application.mainApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/marco/Documents/JavaFX/MyRestaurant2/src/main/java/upo20052959/ristorante",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marco\Documents\JavaFX\MyRestaurant2\src\main\java\upo20052959\ristorante" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="upo20052959.ristorante" />
     </key>
@@ -183,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736937966004</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="implementazione dell'interfaccia grafica (sono presenti ancora bug e parti incomplete )">
+      <option name="closed" value="true" />
+      <created>1737081607484</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1737081607484</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +212,7 @@
     <MESSAGE value="progetto FX ben impostato" />
     <MESSAGE value="b" />
     <MESSAGE value="voglio un aumento" />
-    <option name="LAST_COMMIT_MESSAGE" value="voglio un aumento" />
+    <MESSAGE value="implementazione dell'interfaccia grafica (sono presenti ancora bug e parti incomplete )" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementazione dell'interfaccia grafica (sono presenti ancora bug e parti incomplete )" />
   </component>
 </project>

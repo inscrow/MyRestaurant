@@ -104,3 +104,14 @@
     -fx-border-color: #81C784;
     -fx-border-radius: 5;
 }
+
+/* Rimuove il rettangolo di focus dalle tab */
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+}

@@ -67,9 +67,6 @@ public class MyResturantController {
     private ObservableList<Ordine> ordiniList = FXCollections.observableArrayList();
 
 
-
-
-
     /**
      * Inizializza il controller.
      * Configura le colonne delle tabelle e i campi dell'interfaccia utente.
@@ -224,13 +221,12 @@ public class MyResturantController {
 
             clientiTable.getItems().clear();
 
-            ObservableList ricerca = FXCollections.observableArrayList();
+
 
             LinkedList<Cliente> sas = new LinkedList<>(MioRistorante.findClienteEtaCM(min, max)) ;
-            ricerca = FXCollections.observableArrayList(sas);
+            ObservableList ricerca = FXCollections.observableArrayList(sas);
             clientiTable.setItems(ricerca);
 
-            int annoCorrente = LocalDate.now().getYear();
 
             if (clientiTable.getItems().isEmpty()) {
                 showError("Nessun cliente trovato in questo range di età");
@@ -378,26 +374,44 @@ public class MyResturantController {
     }
 
     /**
-     * Visualizza un messaggio di errore.
+     * Visualizza un messaggio di errore per 4 secondi con dissolvenza.
      *
      * @param message il messaggio di errore
      */
     private void showError(String message) {
         statusLabel.setText("Errore: " + message);
+        // Crea una transizione di dissolvenza
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), statusLabel);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setDelay(Duration.seconds(4)); // Attende 4 secondi prima della dissolvenza
+        fadeOut.play();
+        
+        // Ripristina l'opacità per il prossimo messaggio
+        fadeOut.setOnFinished(event -> {
+            statusLabel.setOpacity(1.0);
+            statusLabel.setText("");
+        });
     }
 
     /**
-     * Visualizza un messaggio di stato.
+     * Visualizza un messaggio di stato per 4 secondi con dissolvenza.
      *
      * @param message il messaggio di stato
      */
     private void showStatus(String message) {
         statusLabel.setText(message);
+        // Crea una transizione di dissolvenza
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), statusLabel);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setDelay(Duration.seconds(4)); // Attende 4 secondi prima della dissolvenza
+        fadeOut.play();
+        
+        // Ripristina l'opacità per il prossimo messaggio
+        fadeOut.setOnFinished(event -> {
+            statusLabel.setOpacity(1.0);
+            statusLabel.setText("");
+        });
     }
-
-
-
-
-
-
 }
