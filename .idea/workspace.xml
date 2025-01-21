@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )" />
+    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +30,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/inscrow/MyRestaurant&quot;,
-    &quot;accountId&quot;: &quot;750f0624-16e3-4386-a5f5-1ae13ced65e8&quot;
+    &quot;accountId&quot;: &quot;349500c0-ea38-41c1-ab25-3aceac869c5a&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -52,8 +58,10 @@
     "Application.MioRistorante.executor": "Run",
     "Application.main.executor": "Run",
     "Application.mainApplication.executor": "Run",
+    "JUnit.MyResturantControllerTest.findClienteConEtaTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "com.codeium.enabled": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -72,7 +80,7 @@
   <component name="RunManager" selected="Application.main">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.main" />
-      <module name="miorest" />
+      <module name="Myreturant" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="upo20052959.ristorante.*" />
@@ -96,9 +104,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyResturantControllerTest.findClienteConEtaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Myreturant" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="upo20052959.ristorante.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="upo20052959.ristorante" />
+      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.MyResturantControllerTest" />
+      <option name="METHOD_NAME" value="findClienteConEtaTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.main" />
+        <item itemvalue="JUnit.MyResturantControllerTest.findClienteConEtaTest" />
         <item itemvalue="Application.mainApplication" />
       </list>
     </recent_temporary>
@@ -223,6 +248,7 @@
     <MESSAGE value="implementazione dell'interfaccia grafica (sono presenti ancora bug e parti incomplete )" />
     <MESSAGE value="correzione di errori e aggiunta di migliorie grafiche" />
     <MESSAGE value="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )" />
-    <option name="LAST_COMMIT_MESSAGE" value="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )" />
+    <MESSAGE value="correzione d'un errore" />
+    <option name="LAST_COMMIT_MESSAGE" value="correzione d'un errore" />
   </component>
 </project>

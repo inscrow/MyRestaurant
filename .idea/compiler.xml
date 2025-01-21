@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="myreasturant" />
         <module name="miorest" />
+        <module name="Myreturant" />
       </profile>
     </annotationProcessing>
   </component>

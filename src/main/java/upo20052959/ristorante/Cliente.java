@@ -105,10 +105,9 @@ public class Cliente {
     public ArrayList<Integer> getListNumPiatti() {
         ArrayList<Integer> results = new ArrayList<>();
 
-        for (Ordine ordini : ordini) {
-            results.add(ordini.getNumPiatti());
+        for (Ordine ordine : ordini) {
+            results.add(ordine.getNumPiatti());
         }
-
         return results;
     }
 
@@ -123,7 +122,21 @@ public class Cliente {
             results.add(ordini.getTipoMenu());
         }
 
-        return results;    }
+        return results;
+    }
+
+    /**
+     * Restituisce il totale dei piatti ordinati dal cliente.
+     *
+     * @return il totale dei piatti ordinati
+     */
+    public int getTotalePiatti() {
+        int totale = 0;
+        for (Ordine ordine : ordini) {
+            totale += ordine.getNumPiatti();
+        }
+        return totale;
+    }
 
     /**
      * Genera un id casuale unico nel formato "user_" + numero

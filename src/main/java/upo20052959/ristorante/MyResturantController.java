@@ -12,10 +12,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Controller principale dell'applicazione ristorante.
@@ -61,7 +58,6 @@ public class MyResturantController {
     //forse utili per la oservation list ma toglierle per le operazioni comuni
     private ObservableList<Cliente> clientiList = FXCollections.observableArrayList();
     private ObservableList<Ordine> ordiniList = FXCollections.observableArrayList();
-
 
     /**
      * Inizializza il controller.
@@ -247,7 +243,6 @@ public class MyResturantController {
                 return;
             }
 
-
             TipoMenu tipoMenu = null;
             for (TipoMenu tipo : TipoMenu.values()) {
                 if (tipo.toString().equals(tipoMenuStr)) {
@@ -262,17 +257,19 @@ public class MyResturantController {
             }
 
             // Verifica che il cliente esista
+            //TODO: farlo con la funzione del model
             Cliente cliente = MioRistorante.findClienteCM(clienteId);
             if (cliente == null) {
                 showError("Cliente non trovato");
                 return;
             }
 
-            Ordine ordine = new Ordine(numPiatti, tipoMenu, data);
+            cliente.addOrdine(numPiatti, tipoMenu, data);
 
-            ordiniList.add(ordine);
             clearOrdineFields();
             showStatus("Ordine aggiunto con successo");
+
+            ordiniList.add(new Ordine(numPiatti, tipoMenu, data));
         } catch (NumberFormatException e) {
             showError("Numero di piatti non valido");
         } catch (Exception e) {
@@ -282,8 +279,7 @@ public class MyResturantController {
 
 
 
-    //usare le funzioni del model
-    //statistiche
+
     @FXML private TextArea statisticheArea;
     @FXML private Label statusLabel;
     @FXML private TabPane tabPane;
@@ -292,18 +288,17 @@ public class MyResturantController {
      */
     @FXML
     protected void handleStatistichePiatti() {
-        StringBuilder stats = new StringBuilder("Statistiche Numero Piatti:\n\n");
-        for (Cliente c : clientiList) {
-            stats.append("Cliente ").append(c.getId()).append(":\n");
+        IntSummaryStatistics stats = MioRistorante.statisticheNumeroPiattiLista();
 
+        StringBuilder sb = new StringBuilder();
+        sb.append("Statistiche Numero Piatti:\n");
+        sb.append("  Conteggio: ").append(stats.getCount()).append("\n");
+        sb.append("  Media: ").append(stats.getAverage()).append("\n");
+        sb.append("  Minimo: ").append(stats.getMin()).append("\n");
+        sb.append("  Massimo: ").append(stats.getMax()).append("\n");
+        sb.append("  Somma: ").append(stats.getSum()).append("\n");
 
-            ArrayList<Integer> numPiatti = c.getListNumPiatti();
-            for (Integer num : numPiatti) {
-                stats.append("- ").append(num).append(" piatti\n");
-            }
-            stats.append("\n");
-        }
-        statisticheArea.setText(stats.toString());
+        statisticheArea.setText(sb.toString());
     }
 
     /**
@@ -314,28 +309,22 @@ public class MyResturantController {
         StringBuilder stats = new StringBuilder("Statistiche Tipo Menu:\n\n");
         
         // Crea un contatore per ogni tipo di menu
-        Map<TipoMenu, Integer> conteggio = new EnumMap<>(TipoMenu.class);
-        for (TipoMenu tipo : TipoMenu.values()) {
-            conteggio.put(tipo, 0);
-        }
-        
-        // Conta le occorrenze di ogni tipo di menu
-        for (Ordine ordine : ordiniList) {
-            TipoMenu tipo = ordine.getTipoMenu();
-            conteggio.put(tipo, conteggio.get(tipo) + 1);
-        }
-        
-        // Genera le statistiche
+        Map<TipoMenu, Integer> conteggio = MioRistorante.calcolaStatisticheTipoMenu();
+
+
+
         for (Map.Entry<TipoMenu, Integer> entry : conteggio.entrySet()) {
-            if (entry.getValue() > 0) {
-                stats.append("Menu ").append(entry.getKey()).append(": ")
-                     .append(entry.getValue()).append(" ordini\n");
-            }
+            stats.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
+
+        showStatus(String.valueOf(conteggio.isEmpty()));
         
+
+
+        /*
         if (ordiniList.isEmpty()) {
             stats.append("Nessun ordine presente nel sistema.");
-        }
+        }*/
         
         statisticheArea.setText(stats.toString());
     }
