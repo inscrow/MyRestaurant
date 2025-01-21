@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzione degli ultimi errori sulle statistiche">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +62,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/marco/Documents/JavaFX/MyRestaurant",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -225,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737093281516</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="correzione degli ultimi errori sulle statistiche">
+      <option name="closed" value="true" />
+      <created>1737464973994</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1737464973994</updated>
+    </task>
+    <task id="LOCAL-00013" summary="correzione degli ultimi errori sulle statistiche">
+      <option name="closed" value="true" />
+      <created>1737464996188</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1737464996188</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +261,7 @@
     <MESSAGE value="correzione di errori e aggiunta di migliorie grafiche" />
     <MESSAGE value="correzzione dei bug e miglioramenti alla grafica. C'è ancora da correggere un bug relativo alle statistiche e modificare i metodi delle statistiche del contrller in moto tale che usino i metodi del model piuttosto che i propri (comunque faccio io )" />
     <MESSAGE value="correzione d'un errore" />
-    <option name="LAST_COMMIT_MESSAGE" value="correzione d'un errore" />
+    <MESSAGE value="correzione degli ultimi errori sulle statistiche" />
+    <option name="LAST_COMMIT_MESSAGE" value="correzione degli ultimi errori sulle statistiche" />
   </component>
 </project>
