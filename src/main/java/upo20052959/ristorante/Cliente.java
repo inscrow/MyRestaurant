@@ -49,12 +49,12 @@ public class Cliente {
 
     // TODO: aggiungere javadoc
     public Cliente(String id, int nascita) throws IdAlreadyUsed {
-        this(id, nascita, Date.now());
+        this(id, nascita, LocalDate.now());
     }
 
     // TODO: aggiungere javadoc
     public Cliente(int nascita) throws IdAlreadyUsed {
-        this(Cliente.generaId(), nascita, Date.now());
+        this(Cliente.generaId(), nascita, LocalDate.now());
     }
 
     /**

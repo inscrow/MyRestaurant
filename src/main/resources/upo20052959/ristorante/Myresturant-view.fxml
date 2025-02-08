@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="598.0" prefWidth="839.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upo20052959.ristorante.MyResturantController">
+<BorderPane prefHeight="598.0" prefWidth="839.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upo20052959.ristorante.MRView">
    <effect>
       <DropShadow color="#00000033" radius="10" spread="0.1" />
    </effect>
@@ -106,7 +106,7 @@
                </padding>
                <spacing>10.0</spacing>
                <Button onAction="#handleStatistichePiatti" prefHeight="23.0" prefWidth="186.0" text="Statistiche Numero Piatti" />
-               <Button onAction="#statisticheTipoMenuClasse" prefHeight="23.0" prefWidth="186.0" text="Statistiche Tipo Menu" />
+               <Button onAction="#handleStatisticheMenu" prefHeight="23.0" prefWidth="186.0" text="Statistiche Tipo Menu" />
                <TextArea fx:id="statisticheArea" editable="false" VBox.vgrow="ALWAYS">
                   <effect>
                      <DropShadow color="#00000033" radius="5" />

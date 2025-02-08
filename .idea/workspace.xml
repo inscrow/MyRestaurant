@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="correzione degli ultimi errori sulle statistiche">
+      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassDiagram/VPProjects/RMLMioRistorante.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/ClassDiagram/VPProjects/RMLMioRistorante.vpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/upo20052959/ristorante/MioRistorante.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/upo20052959/ristorante/MioRistorante.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MioRistorante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRTerm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MyResturantController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/upo20052959/ristorante/Myresturant-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/upo20052959/ristorante/MyResturantControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/upo20052959/ristorante/MRControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -25,8 +42,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/inscrow/MyRestaurant&quot;,
-    &quot;accountId&quot;: &quot;349500c0-ea38-41c1-ab25-3aceac869c5a&quot;
+    &quot;url&quot;: &quot;git@github.com:inscrow/MyRestaurant.git&quot;,
+    &quot;accountId&quot;: &quot;b11aa52a-cbf2-4e8a-aec3-dfdcaeb3e762&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -51,6 +68,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.MRTerm.executor": "Run",
+    "Application.MRView.executor": "Run",
     "Application.MioRistorante.executor": "Run",
     "Application.main.executor": "Run",
     "Application.mainApplication.executor": "Run",
@@ -62,7 +81,16 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/marco/Documents/JavaFX/MyRestaurant",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -73,9 +101,22 @@
       <recent name="upo20052959.ristorante" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main">
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.main" />
+  <component name="RunManager" selected="Application.MRView">
+    <configuration name="MRTerm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.MRTerm" />
+      <module name="Myreturant" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="upo20052959.ristorante.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MRView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.MRView" />
       <module name="Myreturant" />
       <extension name="coverage">
         <pattern>
@@ -100,7 +141,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyResturantControllerTest.findClienteConEtaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MRControllerTest.findClienteConEtaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Myreturant" />
       <extension name="coverage">
         <pattern>
@@ -109,7 +150,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="upo20052959.ristorante" />
-      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.MyResturantControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="upo20052959.ristorante.MRControllerTest" />
       <option name="METHOD_NAME" value="findClienteConEtaTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -118,11 +159,20 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main" />
-        <item itemvalue="JUnit.MyResturantControllerTest.findClienteConEtaTest" />
+        <item itemvalue="Application.MRView" />
+        <item itemvalue="Application.MRTerm" />
+        <item itemvalue="JUnit.MRControllerTest.findClienteConEtaTest" />
         <item itemvalue="Application.mainApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -132,6 +182,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1736604885145</updated>
+      <workItem from="1738747531600" duration="7895000" />
+      <workItem from="1738836880772" duration="5180000" />
+      <workItem from="1738859201362" duration="778000" />
+      <workItem from="1738922833973" duration="2356000" />
+      <workItem from="1739036517335" duration="1845000" />
     </task>
     <task id="LOCAL-00001" summary="sas">
       <option name="closed" value="true" />
@@ -239,6 +294,9 @@
     </task>
     <option name="localTasksCounter" value="14" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
