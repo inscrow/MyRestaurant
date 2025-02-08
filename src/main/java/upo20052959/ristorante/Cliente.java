@@ -47,6 +47,16 @@ public class Cliente {
         this(Cliente.generaId(), nascita, registrazione);
     }
 
+    // TODO: aggiungere javadoc
+    public Cliente(String id, int nascita) throws IdAlreadyUsed {
+        this(id, nascita, Date.now());
+    }
+
+    // TODO: aggiungere javadoc
+    public Cliente(int nascita) throws IdAlreadyUsed {
+        this(Cliente.generaId(), nascita, Date.now());
+    }
+
     /**
      * Ritorna l'id associati al cliente 
      * @return id associati al cliente 
