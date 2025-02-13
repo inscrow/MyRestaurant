@@ -138,7 +138,7 @@ public class MRView extends Application {
     }
 
     /**
-     * TODO: aggiungi javadoc
+     * Inizializza la tabella con i dati dei clienti
      */
     @FXML
     private void initClientiTab() {
@@ -149,7 +149,7 @@ public class MRView extends Application {
     }
 
     /**
-     * TODO: agigungi javadoc
+     * Inizializza la tabella con i dati degli ordini
      */
     @FXML
     private void initOrdiniTab() {
@@ -277,22 +277,12 @@ public class MRView extends Application {
                 return;
             }
 
-            // Verifica che il cliente esista
-            // TODO: pulire codice e usare il controller per le operazioni non di interfaccia grafica
-            Cliente cliente = MRController.findCliente(clienteId);
-            if (cliente == null) {
-                showError("Cliente non trovato");
-                return;
-            }
-
             MRController.addOrdine(clienteId, numPiatti, tipoMenu);
 
             clearOrdineFields();
             showStatus("Ordine aggiunto con successo");
-        } catch (NumberFormatException e) {
-            showError("Numero di piatti non valido");
-        } catch (Exception e) {
-            showError("Errore nell'aggiunta dell'ordine: " + e.getMessage());
+        } catch (OrdineNonAggiunto e) {
+            showError(e.getMessage());
         }
     }
 
@@ -345,7 +335,9 @@ public class MRView extends Application {
      */
     @FXML
     protected void handleRefreshTable() {
-        clientiTable.setItems(FXCollections.observableList(MRController.getClientiList()));
+        // clientiTable.getItems().clear();
+        initClientiTab();
+        // clientiTable.setItems(FXCollections.observableList(MRController.getClientiList()));
         showStatus("Lista clienti aggiornata");
     }
 

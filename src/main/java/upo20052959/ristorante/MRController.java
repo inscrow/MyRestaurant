@@ -10,12 +10,18 @@ import java.util.*;
 public class MRController {
     private static final List<Cliente> clientiList = new ArrayList<>();
 
-    // TODO: aggiungi javadoc
+    /**
+     * Ritorna la lista di clienti del ristorante
+     * @return lista di clienti
+     */
     public static List<Cliente> getClientiList() {
         return clientiList;
     }
 
-    // TODO: aggiungi javadoc
+    /**
+     * Ritorna la lista degli ordini di tutti i clienti
+     * @return lista di ordini
+     */
     public static List<Ordine> getOrdiniList() {
         List<Ordine> ordiniList = new ArrayList<>();
         for (Cliente c : clientiList) {
@@ -35,20 +41,24 @@ public class MRController {
     public static void addCliente(String id, int nascita, LocalDate reg) throws ClienteNonAggiunto {
         Cliente c;
         // Se l'id inserito è vuoto, usa il costruttore che genera l'id randomicamente
-        //TODO: se si inserisce l'id randomicamente si fa in modo che si escludano quelli già esistenti
-        if (id.isEmpty()) {
-            try {
-                c = new Cliente(nascita, reg);
-            } catch (IdAlreadyUsed e) {
-                throw new ClienteNonAggiunto(e.getMessage());
+        try {
+            if (id.isEmpty()) {
+                if (reg == null) {
+                    c = new Cliente(nascita);
+                } else {
+                    c = new Cliente(nascita, reg);
+                }
+            } else {
+                if (reg == null) {
+                    c = new Cliente(id, nascita);
+                } else {
+                    c = new Cliente(id, nascita, reg);
+                }
             }
-        } else {
-            try {
-                c = new Cliente(id, nascita, reg);
-            } catch (IdAlreadyUsed e) {
-                throw new ClienteNonAggiunto(e.getMessage());
-            }
+        } catch (NoAddClienteException e) {
+            throw new ClienteNonAggiunto(e.getMessage());
         }
+
         clientiList.add(c);
     }
 
@@ -86,18 +96,23 @@ public class MRController {
         return results;
     }
 
-    // TODO: aggiungere data come parametro
     /**
      * Aggiunge un ordine al cliente con id selezionato
      *
      * @param id        id del cliente che ha ordinato
      * @param numPiatti numero di piatti nel pasto
      * @param tipoMenu  tipo di menù ordinato
+     * @param date data in cui è stato effettuato l'ordine
      */
-    public static void addOrdine(String id, int numPiatti, TipoMenu tipoMenu) {
+    public static void addOrdine(String id, int numPiatti, TipoMenu tipoMenu, LocalDate date) throws OrdineNonAggiunto {
         Cliente c = findCliente(id);
-        if (null != c) {
-            c.addOrdine(numPiatti, tipoMenu, LocalDate.now());
+        if (null == c) {
+            throw new OrdineNonAggiunto("Id del cliente non trovato");
+        }
+        try {
+            c.addOrdine(numPiatti, tipoMenu, date);
+        } catch (NoAddOrderException e) {
+            throw new OrdineNonAggiunto(e.getMessage());
         }
     }
 

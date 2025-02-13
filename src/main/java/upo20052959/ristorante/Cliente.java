@@ -27,9 +27,14 @@ public class Cliente {
      * @param registrazione data di registrazione associati al cliente 
      * @throws IdAlreadyUsed l'id fornito è già stato usato
      */
-    public Cliente(String id, int nascita, LocalDate registrazione) throws IdAlreadyUsed {
-        if (listaIds.contains(id))
-            throw new IdAlreadyUsed("Id già utilizzato");
+    public Cliente(String id, int nascita, LocalDate registrazione) throws NoAddClienteException {
+        try {
+            validaId(id);
+            validaNascita(nascita);
+            validaRegistrazione(registrazione, nascita);
+        } catch (Exception e) {
+            throw new NoAddClienteException(e.getMessage());
+        }
         this.id = id;
         this.nascita = nascita;
         this.registrazione = registrazione;
@@ -43,18 +48,60 @@ public class Cliente {
      * @param nascita anno di nascita associati al cliente 
      * @param registrazione data di registrazione associati al cliente 
      */
-    public Cliente(int nascita, LocalDate registrazione) throws IdAlreadyUsed {
+    public Cliente(int nascita, LocalDate registrazione) throws NoAddClienteException {
         this(Cliente.generaId(), nascita, registrazione);
     }
 
-    // TODO: aggiungere javadoc
-    public Cliente(String id, int nascita) throws IdAlreadyUsed {
+    /**
+     * Crea un cliente utilizzando la data di oggi per la registrazione
+     * @param id id per il cliente
+     * @param nascita anno di nascita del cliente
+     */
+    public Cliente(String id, int nascita) throws NoAddClienteException {
         this(id, nascita, LocalDate.now());
     }
 
-    // TODO: aggiungere javadoc
-    public Cliente(int nascita) throws IdAlreadyUsed {
+    /**
+     * Crea un cliente generando un id casuale e utilizzando la data di oggi per la registrazione
+     * @param nascita anno di nascita del cliente
+     */
+    public Cliente(int nascita) throws NoAddClienteException {
         this(Cliente.generaId(), nascita, LocalDate.now());
+    }
+
+    /**
+     * Lancia un'eccezione se l'id passato come input è già stato utilizzato
+     * @param id id da controllare
+     */
+    public void validaId(String id) throws IdAlreadyUsed {
+        if (listaIds.contains(id))
+            throw new IdAlreadyUsed("L'id inserito è già stato utilizzato");
+    }
+
+    /**
+     * Controlla che l'anno passato come parametro rientri nei limiti di tempo
+     * possibili: tra il 1900 e l'anno corrente
+     * @param nascita anno da controllare
+     */
+    public void validaNascita(int nascita) throws NascitaInvalida {
+        if (nascita < 1900)
+            throw new NascitaInvalida("Il cliente deve essere nato dal 1900 in avanti");
+        if (nascita > LocalDate.now().getYear())
+            throw new NascitaInvalida("Il cliente deve già essere nato");
+    }
+
+    /**
+     * Controlla che la data di registrazione passata come parametro sia
+     * valida. In particolare la data di registrazione non può precedere l'anno
+     * di nascita e non può superare la data odierna
+     * @param reg data di registrazione da controllare
+     * @param nascita data di nascita a cui fare riferimento
+     */
+    public void validaRegistrazione(LocalDate reg, int nascita) throws RegistrazioneInvalida {
+        if (reg.compareTo(LocalDate.now()) > 0)
+            throw new RegistrazioneInvalida("La data di registrazione non può essere nel futuro");
+        if (reg.getYear() < nascita)
+            throw new RegistrazioneInvalida("La data di registrazione deve essere successiva alla nascita");
     }
 
     /**
@@ -64,9 +111,6 @@ public class Cliente {
     public String getId() {
         return id;
     }
-
-    // NOTE: non aggiungiamo il metodo setId perché non ha senso cambiare l'id
-    // di un cliente già esistente
 
     /**
      * Restituisce l'anno di nascita associati al cliente 
@@ -180,7 +224,7 @@ public class Cliente {
      * @param data data in cui è stato effettuato l'ordine
      */
 
-    public void addOrdine(int numPiatti,  TipoMenu Tmenu, LocalDate data) {
+    public void addOrdine(int numPiatti,  TipoMenu Tmenu, LocalDate data) throws NoAddOrderException {
         Ordine o = new Ordine(numPiatti,  Tmenu , data);
         ordini.add(o);
     }

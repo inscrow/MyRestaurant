@@ -16,10 +16,42 @@ public class Ordine {
      * @param tipo tipo di menu
      * @param data data dell'ordine
      */
-    public Ordine(int numPiatti, TipoMenu  tipo, LocalDate data) {
+    public Ordine(int numPiatti, TipoMenu  tipo, LocalDate data) throws NoAddOrderException {
+        try {
+            validaNumPiatti(numPiatti);
+            validaDataOrdine(data);
+        } catch (Exception e) {
+            throw new NoAddOrderException(e.getMessage());
+        }
         this.numPiatti = numPiatti;
         this.tipoMenu = tipo; // impostiamo sempre il tipo ordine in lower case
         this.data = data;
+    }
+
+    /**
+     * Crea un ordine con numero di piatti ordinati e tipo di menù e usa la data odierna
+     * @param numPiatti numero di piatti ordinati
+     * @param tipo tipo di menù ordinato
+     */
+    public Ordine(int numPiatti, TipoMenu tipo) throws NoaddOrderException {
+        this(numPiatti, tipo, LocalDate.now());
+    }
+
+    /**
+     * Convalida il numero di piatti (deve esserci almeno un piatto per ordine)
+     * @param numPiatti numero di piatti da convalidare
+     */
+    private void validaNumPiatti(int numPiatti) throws NessunPiattoOrdinato {
+        if (numPiatti <= 0)
+            throw new NessunPiattoOrdinato("L'ordine deve contenere almeno un piatto");
+    }
+
+    /**
+     * Convalida la data dell'ordine che non può essere successivo al giorno odierno
+     */
+    private void validaDataOrdine(LocalDate data) throws DataOrdineInvalida {
+        if (data.isAfter(LocalDate.now()))
+            throw new DataOrdineInvalida("L'ordine non può avere una data successiva a oggi");
     }
 
     /**

@@ -146,8 +146,6 @@ public class MRTerm {
     /**
      * Questo metodo chiede i dati relativi a una nuova ordinazione e crea l'ordine tramite `addOrdineCM`
      */
-    //TODO: da aggiustare l'input per l'enumerazione
-
     public static void addOrdine() {
         System.out.println("Id del cliente che sta ordinando: ");
         String id = tastiera.next();
@@ -157,7 +155,11 @@ public class MRTerm {
         int codiceMenu = tastiera.nextInt();
         TipoMenu tipo = TipoMenu.tipoMenu(codiceMenu);
 
-        MRController.addOrdine(id, numPiatti, tipo);
+        try {
+            MRController.addOrdine(id, numPiatti, tipo);
+        } catch (OrdineNonAggiunto e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
