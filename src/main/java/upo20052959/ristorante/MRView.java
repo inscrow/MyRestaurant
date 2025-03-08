@@ -178,10 +178,6 @@ public class MRView extends Application {
             int anno = Integer.parseInt(clienteAnnoField.getText().trim());
             LocalDate registrazione = clienteDataRegistrazione.getValue();
 
-            if (registrazione == null) {
-                showError("Seleziona una data di registrazione");
-                return;
-            }
             try {
                 MRController.addCliente(id, anno, registrazione);
                 showStatus("Cliente aggiunto con successo");
@@ -192,13 +188,8 @@ public class MRView extends Application {
 
             clientiTable.setItems(FXCollections.observableList(MRController.getClientiList()));
 
-
         } catch (NumberFormatException e) {
             showError("Anno di nascita non valido");
-        } catch (IdAlreadyUsed e) {
-            showError("ID già in uso");
-        } catch (Exception e) {
-            //showError("Errore nell'aggiunta del cliente: " + e.getMessage());
         }
     }
 
@@ -277,7 +268,7 @@ public class MRView extends Application {
                 return;
             }
 
-            MRController.addOrdine(clienteId, numPiatti, tipoMenu);
+            MRController.addOrdine(clienteId, numPiatti, tipoMenu, data);
 
             clearOrdineFields();
             showStatus("Ordine aggiunto con successo");
@@ -291,7 +282,7 @@ public class MRView extends Application {
      */
     @FXML
     protected void handleStatistichePiatti() {
-        IntSummaryStatistics stats = MRController.statisticheNumeroPiattiLista();
+        IntSummaryStatistics stats = MRController.statisticheNumeroPiatti();
 
         String sb = "Statistiche Numero Piatti:\n" +
                 "  Conteggio: " + stats.getCount() + "\n" +
@@ -311,23 +302,16 @@ public class MRView extends Application {
         StringBuilder stats = new StringBuilder("Statistiche Tipo Menu:\n\n");
 
         // Crea un contatore per ogni tipo di menu
-        Map<TipoMenu, Integer> conteggio = MRTerm.calcolaStatisticheTipoMenu();
+        Map<TipoMenu, Integer> conteggio = MRController.statisticheTipoMenu();
 
-
-        for (Map.Entry<TipoMenu, Integer> entry : conteggio.entrySet()) {
-            stats.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
+        if (conteggio.isEmpty()) {
+            showError("Non ci sono conteggi");
+        } else {
+            for (TipoMenu tm : conteggio.keySet()) {
+                stats.append(tm.toString()).append(": ").append(conteggio.get(tm)).append("\n");
+            }
+            statisticheArea.setText(stats.toString());
         }
-
-        showStatus(String.valueOf(conteggio.isEmpty()));
-
-
-
-        /*
-        if (ordiniList.isEmpty()) {
-            stats.append("Nessun ordine presente nel sistema.");
-        }*/
-
-        statisticheArea.setText(stats.toString());
     }
 
     /**
@@ -336,7 +320,8 @@ public class MRView extends Application {
     @FXML
     protected void handleRefreshTable() {
         // clientiTable.getItems().clear();
-        initClientiTab();
+//        initClientiTab();
+        ordiniTable.setItems(FXCollections.observableList(MRController.getOrdiniList()));
         // clientiTable.setItems(FXCollections.observableList(MRController.getClientiList()));
         showStatus("Lista clienti aggiornata");
     }

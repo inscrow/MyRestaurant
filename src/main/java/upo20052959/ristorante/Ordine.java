@@ -33,7 +33,7 @@ public class Ordine {
      * @param numPiatti numero di piatti ordinati
      * @param tipo tipo di menù ordinato
      */
-    public Ordine(int numPiatti, TipoMenu tipo) throws NoaddOrderException {
+    public Ordine(int numPiatti, TipoMenu tipo) throws NoAddOrderException {
         this(numPiatti, tipo, LocalDate.now());
     }
 

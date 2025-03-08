@@ -98,7 +98,7 @@ public class Cliente {
      * @param nascita data di nascita a cui fare riferimento
      */
     public void validaRegistrazione(LocalDate reg, int nascita) throws RegistrazioneInvalida {
-        if (reg.compareTo(LocalDate.now()) > 0)
+        if (reg.isAfter(LocalDate.now()))
             throw new RegistrazioneInvalida("La data di registrazione non può essere nel futuro");
         if (reg.getYear() < nascita)
             throw new RegistrazioneInvalida("La data di registrazione deve essere successiva alla nascita");
@@ -177,19 +177,6 @@ public class Cliente {
         }
 
         return results;
-    }
-
-    /**
-     * Restituisce il totale dei piatti ordinati dal cliente.
-     *
-     * @return il totale dei piatti ordinati
-     */
-    public int getTotalePiatti() {
-        int totale = 0;
-        for (Ordine ordine : ordini) {
-            totale += ordine.getNumPiatti();
-        }
-        return totale;
     }
 
     /**

@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class MRTerm {
     private static ArrayList<Cliente> clienti;
-    private static Scanner tastiera;
+    private static final Scanner tastiera;
 
     // Inizializiamo clienti e tastiera in blocco static
     static {
@@ -141,8 +141,6 @@ public class MRTerm {
         }
     }
 
-
-
     /**
      * Questo metodo chiede i dati relativi a una nuova ordinazione e crea l'ordine tramite `addOrdineCM`
      */
@@ -154,57 +152,30 @@ public class MRTerm {
         System.out.println("Tipo di menù disponibili:\n" + TipoMenu.tipiMenu() + "Inserisci il numero del menu scelto: ");
         int codiceMenu = tastiera.nextInt();
         TipoMenu tipo = TipoMenu.tipoMenu(codiceMenu);
+        System.out.println("Data dell'ordine: ");
+        LocalDate data = LocalDate.parse(tastiera.nextLine());
 
         try {
-            MRController.addOrdine(id, numPiatti, tipo);
+            MRController.addOrdine(id, numPiatti, tipo, data);
         } catch (OrdineNonAggiunto e) {
             System.out.println(e.getMessage());
         }
     }
 
-
-
     /**
-     * Stampa il numero minimo, il numero massimo e il numero medio di piatti per un ordine, leggendo i dati dalla lista di ordini
+     * Stampa il numero di ordini per ogni tipo di menù
      */
-    /*public static void statisticheNumeroPiattiClasse() {
-        IntSummaryStatistics stats = clienti.stream().flatMap(cliente -> cliente.getOrdini().stream()).mapToInt(Ordine::getNumPiatti).filter(numPiatti -> numPiatti > 0).summaryStatistics();
-
-        stampaStatisticheNumPiatti(stats);
-    }*/
-
-    /**
-     * Calcola le statistiche sul tipo di menu ordinato dai clienti.
-     *
-     * @return la mappa delle statistiche calcolate
-     */
-    public static Map<TipoMenu, Integer> calcolaStatisticheTipoMenu() {
-        Map<TipoMenu, Integer> map = new HashMap<>();
-        for (Cliente c : clienti) {
-            for (TipoMenu tm : c.getListTipoMenu()) {
-                map.merge(tm, 1, Integer::sum);
-            }
-        }
-        return map;
-    }
-
-    /**
-     * Stampa le statistiche sul tipo di menu ordinato dai clienti.
-     */
-    private static void stampaStatisticheTipoMenu() {
-        Map<TipoMenu, Integer> map = calcolaStatisticheTipoMenu();
-        if (!map.isEmpty()) {
-            map.forEach((K, n) -> System.out.println(K + ": " + n));
-        } else {
-            System.out.println("non sono ancora state registrate ordinazioni");
+    public static void stampaStatisticheTipoMenu() {
+        Map<TipoMenu, Integer> map = MRController.statisticheTipoMenu();
+        for (TipoMenu tm : map.keySet()) {
+            System.out.println(tm.nome() + ": " + map.get(tm));
         }
     }
-
     /**
-     * Stampa le statistiche fornite
+     * Stampa le statistiche del numero di piatti (numero minimo, numero massimo e media)
      */
     private static void stampaStatisticheNumPiatti() {
-        IntSummaryStatistics stats = MRController.statisticheNumeroPiattiLista();
+        IntSummaryStatistics stats = MRController.statisticheNumeroPiatti();
         if (stats.getCount() == 0) {
             System.out.println("Non è stato ancora caricato nessun ordine");
             return;
@@ -214,6 +185,4 @@ public class MRTerm {
         System.out.println("Il numero massimo di piatti in un ordine è: " + stats.getMax());
         System.out.println("Il numero medio di piatti in un ordine è: " + stats.getAverage());
     }
-
-
 }

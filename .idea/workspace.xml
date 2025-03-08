@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="014a9aa2-9fb0-4b56-83ee-7d5adbb4f31b" name="Changes" comment="separato View e Controller&#10;&#10;C'è un problema con il refresh delle schermate, che rimangono vuoti dopo una ricerca">
-      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/DataOrdineInvalida.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/NascitaInvalida.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/NessunPiattoOrdinato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/NoAddOrderException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/OrdineNonAggiunto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/RegistrazioneInvalida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassDiagram/VPProjects/RMLMioRistorante.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/ClassDiagram/VPProjects/RMLMioRistorante.vpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRTerm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/upo20052959/ristorante/MRTerm.java" afterDir="false" />
@@ -196,6 +189,8 @@
       <workItem from="1739036517335" duration="3339000" />
       <workItem from="1739133583283" duration="5901000" />
       <workItem from="1739213011173" duration="1080000" />
+      <workItem from="1739873295520" duration="2380000" />
+      <workItem from="1741421001677" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="sas">
       <option name="closed" value="true" />

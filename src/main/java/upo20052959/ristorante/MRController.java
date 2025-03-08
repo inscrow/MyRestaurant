@@ -77,6 +77,7 @@ public class MRController {
         return null;
     }
 
+    // FIXME: non viene trovato nessun cliente
     /**
      * Trova una lista di clienti con età compresa tra un valore minimo e un valore massimo
      *
@@ -119,7 +120,7 @@ public class MRController {
     /**
      * Stampa il numero minimo, il numero massimo e il numero medio di piatti
      */
-    public static IntSummaryStatistics statisticheNumeroPiattiLista() {
+    public static IntSummaryStatistics statisticheNumeroPiatti() {
         return clientiList.stream().flatMapToInt(c ->
                         c.getListNumPiatti().stream()
                                 .mapToInt(Integer::intValue))
@@ -129,19 +130,13 @@ public class MRController {
     /**
      * Stampare il numero di ordini per ciascun tipo di menù dalla lista di tipi di menu ordinati
      */
-    public static void statisticheTipoMenuLista() {
-        Map<TipoMenu, Integer> map = new HashMap<>();
+    public static Map<TipoMenu, Integer> statisticheTipoMenu() {
+        Map<TipoMenu, Integer> countMenu = new HashMap<>();
         for (Cliente c : clientiList) {
             for (TipoMenu tm : c.getListTipoMenu()) {
-                map.merge(tm, 1, Integer::sum);
+                countMenu.merge(tm, 1, Integer::sum);
             }
         }
-
-        //eccezione
-        if (!map.isEmpty()) {
-            map.forEach((K, n) -> System.out.println(K + ": " + n));
-        } else {
-            System.out.println("non sono ancora state registrate ordinazioni");
-        }
+        return countMenu;
     }
 }
